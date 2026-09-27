@@ -33,6 +33,12 @@ RATE_LIMIT_BURST_PER_MIN = 12      # requests per IP per rolling minute
 # tighten to your real domains for production.
 ALLOWED_ORIGINS = os.environ.get("ALLOWED_ORIGINS", "*").split(",")
 
+# Where a captured lead is forwarded (a demo lead = a PGT sales lead, for the owner playing it).
+# Set this to a URL that accepts a JSON POST — the future PGT admin backend, or an interim
+# webhook (Web3Forms/Zapier/etc.). If unset, leads are only logged (no delivery). No email
+# service, DB, or auth is used here on purpose — this stays a light marketing demo.
+LEAD_WEBHOOK_URL = os.environ.get("LEAD_WEBHOOK_URL", "").strip()
+
 # Each vertical: display name, brand voice, the assistant's job, and its corpus file.
 VERTICALS = {
     "restaurant": {

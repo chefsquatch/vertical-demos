@@ -143,3 +143,53 @@ def test_upstream_error_returns_failsafe(app_and_fake):
     fake.raise_exc = RuntimeError("boom")
     r = c.post("/chat", json={"vertical": "restaurant", "messages": [{"role": "user", "content": "hi"}]})
     assert r.status_code == 502 and "unavailable" in r.json()["error"].lower()
+
+
+# ---------- lead forwarding (the demo lead forks to PGT) ----------
+
+class _FakeHTTP:
+    """Records POSTs so we can assert the lead was (or wasn't) forwarded, with no network."""
+    posts = []
+
+    def __init__(self, *a, **k):
+        pass
+
+    async def __aenter__(self):
+        return self
+
+    async def __aexit__(self, *a):
+        return False
+
+    async def post(self, url, json=None):
+        _FakeHTTP.posts.append((url, json))
+
+
+_LEAD_TEXT = ('Done\n<<LEAD>>{"name":"Dana","phone":"555-0133",'
+              '"summary":"Margherita pickup","urgent":false}<<END>>')
+
+
+def test_lead_forwarded_when_webhook_set(app_and_fake, monkeypatch):
+    app_module, fake, c = app_and_fake
+    _FakeHTTP.posts = []
+    monkeypatch.setattr(app_module, "LEAD_WEBHOOK_URL", "https://example.test/hook")
+    monkeypatch.setattr(app_module.httpx, "AsyncClient", _FakeHTTP)
+    fake.next_text = _LEAD_TEXT
+    body = c.post("/chat", json={"vertical": "restaurant",
+                                 "messages": [{"role": "user", "content": "go"}]}).json()
+    assert body["lead"]["name"] == "Dana"
+    assert len(_FakeHTTP.posts) == 1
+    url, sent = _FakeHTTP.posts[0]
+    assert url == "https://example.test/hook"
+    assert sent["vertical"] == "restaurant" and sent["lead"]["name"] == "Dana"
+
+
+def test_lead_not_forwarded_when_webhook_unset(app_and_fake, monkeypatch):
+    app_module, fake, c = app_and_fake
+    _FakeHTTP.posts = []
+    monkeypatch.setattr(app_module, "LEAD_WEBHOOK_URL", "")
+    monkeypatch.setattr(app_module.httpx, "AsyncClient", _FakeHTTP)
+    fake.next_text = _LEAD_TEXT
+    body = c.post("/chat", json={"vertical": "restaurant",
+                                 "messages": [{"role": "user", "content": "go"}]}).json()
+    assert body["lead"]["name"] == "Dana"     # lead still captured/returned
+    assert _FakeHTTP.posts == []              # but nothing forwarded

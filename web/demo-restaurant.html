@@ -155,8 +155,10 @@ var CFG={
   greeting:"Ciao, welcome to Nonna's Table. Hungry? Tell me what you'd like and I'll get your order started.",
   starters:["Margherita — $16","Do you deliver?","See the menu"],
   groundedLabel:"Grounded — real menu only",
-  leadTitle:"Sent to Nonna’s kitchen",
-  failText:"I’m having trouble connecting right now. Leave your name and number and the kitchen will get back to you."
+  leadTitle:"Demo lead captured",
+  failText:"Connection hiccup — in a real deployment your details would still reach the owner. (This is a demo.)",
+  caption:"You’re the customer here — order something and watch the assistant work. This is a live demo of what PGT builds for your restaurant; nothing here places a real order.",
+  leadNote:"This is a PGT demo — no real order was placed. On your own site, a lead like this reaches you the instant it’s captured."
 };
 (function(){
   var log=document.getElementById('log'),chips=document.getElementById('chips'),
@@ -178,7 +180,8 @@ var CFG={
     var rows='<div class="row"><span>Request</span><b>'+esc(l.summary||'—')+'</b></div>'+
       '<div class="row"><span>Contact</span><b>'+esc(l.name||'')+' · '+esc(l.phone||'')+'</b></div>';
     if(l.urgent)rows+='<div class="row"><span>Priority</span><b>Urgent</b></div>';
-    log.appendChild(el('lead','<h4>'+CFG.leadTitle+'</h4>'+rows));scroll();
+    var note=CFG.leadNote?'<p style="margin:9px 0 0;font-size:12px;line-height:1.5;opacity:.75">'+esc(CFG.leadNote)+'</p>':'';
+    log.appendChild(el('lead','<h4>'+CFG.leadTitle+'</h4>'+rows+note));scroll();
   }
   function finish(){done=true;inp.disabled=true;sendBtn.disabled=true;chips.innerHTML='';
     var b=document.createElement('button');b.className='chip';b.textContent='Run it again';
@@ -202,7 +205,7 @@ var CFG={
       .catch(function(){t.remove();addBot(CFG.failText)})
       .finally(function(){busy=false;if(!done)sendBtn.disabled=false});
   }
-  function start(){addBot(CFG.greeting);history.push({role:'assistant',content:CFG.greeting});grounded();setStarters()}
+  function start(){if(CFG.caption)log.appendChild(el('demonote','<span style="display:block;font-size:12px;line-height:1.45;opacity:.72;padding:8px 11px;border:1px dashed rgba(128,128,128,.45);border-radius:10px;margin:0 0 6px">'+esc(CFG.caption)+'</span>'));addBot(CFG.greeting);history.push({role:'assistant',content:CFG.greeting});grounded();setStarters()}
   sendBtn.onclick=function(){send()};
   inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();send()}});
   start();

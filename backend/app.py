@@ -13,13 +13,14 @@ import time
 from collections import defaultdict, deque
 
 import anthropic
+import httpx
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from config import (
-    ALLOWED_ORIGINS, MAX_HISTORY_MESSAGES, MAX_TOKENS, MODEL,
+    ALLOWED_ORIGINS, LEAD_WEBHOOK_URL, MAX_HISTORY_MESSAGES, MAX_TOKENS, MODEL,
     RATE_LIMIT_BURST_PER_MIN, RATE_LIMIT_PER_IP_PER_HOUR, VERTICALS,
 )
 from prompts import build_system_prompt
@@ -61,6 +62,24 @@ def _rate_limited(ip: str) -> bool:
         return True
     dq.append(now)
     return False
+
+
+async def _forward_lead(vertical: str, lead: dict) -> None:
+    """Forward a captured lead to PGT (the demo's whole point: it's a sales lead for the owner).
+
+    Always logs it. If LEAD_WEBHOOK_URL is set, also POSTs it there (the future PGT admin
+    backend, or an interim webhook). A delivery failure is swallowed and logged — it must
+    never break the live demo.
+    """
+    print(f"[LEAD] {vertical} {json.dumps(lead)}", flush=True)
+    if not LEAD_WEBHOOK_URL:
+        return
+    payload = {"source": "vertical-demos", "vertical": vertical, "lead": lead}
+    try:
+        async with httpx.AsyncClient(timeout=5.0) as http:
+            await http.post(LEAD_WEBHOOK_URL, json=payload)
+    except Exception as e:  # never let lead delivery take down the chat
+        print(f"[LEAD-FORWARD-FAILED] {vertical} {type(e).__name__}: {e}", flush=True)
 
 
 def _extract_lead(text: str):
@@ -132,7 +151,6 @@ async def chat(body: ChatIn, request: Request):
 
     reply, lead = _extract_lead(raw)
     if lead:
-        print(f"[LEAD] {body.vertical} {json.dumps(lead)}", flush=True)
-        # Production: dispatch this to the owner via SMS/email here.
+        await _forward_lead(body.vertical, lead)
 
     return {"reply": reply, "lead": lead}
