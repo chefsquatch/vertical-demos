@@ -4,6 +4,13 @@ Four industry chatbot demos — **restaurant, salon, auto-repair, home-services*
 polished landing page with a **real, grounded Claude assistant** you can link to from ads or
 drop on a website. Same engine for all four; only the corpus and brand voice change.
 
+## Live
+
+- **Backend (shared):** https://vertical-demos.onrender.com — Render free tier, model
+  `claude-haiku-4-5`. Endpoints: `POST /chat`, `GET /health`, `GET /verticals`.
+- **Auto-deploy:** pushes to `master` deploy automatically (Render is connected to this repo via
+  the GitHub app). The four `web/*.html` pages point at the backend's `/chat`.
+
 ```
 vertical-demos/
   corpus/                  <- the knowledge each assistant answers from (edit these per client)
