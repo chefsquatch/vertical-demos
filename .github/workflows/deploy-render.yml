@@ -1,0 +1,28 @@
+name: Deploy to Render
+
+# Auto-deploy the backend on every push to master by pinging Render's deploy hook.
+# The hook URL is a secret (anyone with it can trigger a deploy), so it lives in the
+# repo secret RENDER_DEPLOY_HOOK, never in this file.
+#
+# One-time setup: Render service -> Settings -> Deploy -> copy the Deploy Hook URL,
+# then GitHub repo -> Settings -> Secrets and variables -> Actions -> add a secret
+# named RENDER_DEPLOY_HOOK with that URL as the value.
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render deploy
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$RENDER_DEPLOY_HOOK" ]; then
+            echo "RENDER_DEPLOY_HOOK secret is not set — add it in repo Settings > Secrets." >&2
+            exit 1
+          fi
+          curl -fsS -X POST "$RENDER_DEPLOY_HOOK"
+          echo "Render deploy triggered."
