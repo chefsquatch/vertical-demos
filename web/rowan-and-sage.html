@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Rowan &amp; Sage | A salon that books itself</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@400;500;600&family=Pinyon+Script:wght@400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f3e9da;color:#3b1f2b;font-family:Jost,system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:#3b1f2b}a:hover{color:#a44f33}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes slidein{from{opacity:0;transform:translateY(-14px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes twinkle{0%,100%{opacity:.35;transform:scale(.85)}50%{opacity:1;transform:scale(1)}}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div style="background:#3b1f2b;color:#f3e9da;font-size:14.5px;">
+  <div style="max-width:1140px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;justify-content:center;gap:10px 16px;flex-wrap:wrap;text-align:center;">
+    <span style="color:#d9b45a;letter-spacing:.3em;font-size:12px;">✦ ✦ ✦</span>
+    <span><b style="color:#d9b45a;font-weight:600;">Launch deal:</b> build it for <s style="opacity:.6;">$99</s> <b>$69</b>, first month of care free, then $99/mo.</span>
+    <a href="{{ mainSiteUrl }}" style="color:#e8b9a8;font-weight:600;">Find out more</a>
+  </div>
+</div>
+
+<header style="position:sticky;top:0;z-index:30;background:rgba(243,233,218,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #e2d2bd;">
+  <div style="max-width:1140px;margin:0 auto;padding:0 22px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="width:24px;height:24px;border-radius:50%;box-shadow:inset 7px -3px 0 0 #b8923a;transform:rotate(-20deg);flex:0 0 auto;"></span>
+      <div style="font-family:Cormorant,serif;font-weight:500;font-size:30px;line-height:1;letter-spacing:.01em;">Rowan <span style="font-family:'Pinyon Script',cursive;color:#a44f33;font-size:30px;">&amp;</span> Sage</div>
+    </div>
+    <a href="{{ mainSiteUrl }}" style="font-size:14px;font-weight:500;text-decoration:none;border:1px solid #cdb697;padding:8px 16px;border-radius:30px;" style-hover="background:#eadcc6;">← More demos</a>
+  </div>
+</header>
+
+<main>
+
+  <section style="background:#3b1f2b;color:#f3e9da;">
+    <div style="max-width:1140px;margin:0 auto;padding:clamp(40px,7vw,72px) 22px clamp(48px,8vw,80px);">
+      <div style="text-align:center;display:flex;flex-direction:column;align-items:center;">
+        <div style="display:flex;gap:12px;align-items:center;margin-bottom:24px;" aria-hidden="true">
+          <span style="width:12px;height:12px;border-radius:50%;border:1.5px solid #d9b45a;"></span>
+          <span style="width:12px;height:12px;border-radius:50%;border:1.5px solid #d9b45a;background:linear-gradient(90deg,#d9b45a 50%,transparent 50%);"></span>
+          <span style="width:16px;height:16px;border-radius:50%;background:#d9b45a;"></span>
+          <span style="width:12px;height:12px;border-radius:50%;border:1.5px solid #d9b45a;background:linear-gradient(90deg,transparent 50%,#d9b45a 50%);"></span>
+          <span style="width:12px;height:12px;border-radius:50%;border:1.5px solid #d9b45a;"></span>
+        </div>
+        <div style="font-weight:500;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#c9d1b6;">For salons, spas and free spirits with a chair</div>
+        <h1 style="font-family:Cormorant,serif;font-weight:400;font-size:clamp(46px,7.6vw,98px);line-height:.94;letter-spacing:-.015em;margin-top:20px;max-width:15ch;text-wrap:balance;">You just lost a regular <i style="color:#e8b9a8;">before she ever sat in your chair.</i></h1>
+        <p style="font-size:clamp(17px,2vw,20px);color:#e6d3d2;max-width:46ch;margin-top:24px;text-wrap:pretty;">Same message, 11:48pm. One studio answered, one didn't. That difference is money on the floor, every single night.</p>
+      </div>
+      <div style="margin-top:clamp(28px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px;">
+        <div style="border:1px dashed #6e4a55;border-radius:28px;padding:30px;display:flex;flex-direction:column;gap:14px;" data-reveal="">
+          <div style="font-size:12.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#cdb3b8;">Without it</div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="align-self:flex-end;background:#553443;padding:10px 15px;border-radius:18px 18px 6px 18px;font-size:14.5px;max-width:85%;">Hi! Any openings Friday for highlights?</div>
+            <div style="align-self:flex-end;font-size:11.5px;color:#cdb3b8;">11:48 PM · Delivered</div>
+            <div style="align-self:center;font-family:Cormorant,serif;font-style:italic;font-size:17px;color:#cdb3b8;padding:6px 0;">silence, all night</div>
+            <div style="align-self:flex-end;background:#553443;padding:10px 15px;border-radius:18px 18px 6px 18px;font-size:14.5px;max-width:85%;">Nevermind, found somewhere!</div>
+            <div style="align-self:flex-end;font-size:11.5px;color:#cdb3b8;">7:02 AM</div>
+          </div>
+          <div style="margin-top:auto;padding-top:18px;border-top:1px dashed #6e4a55;font-family:Cormorant,serif;font-size:28px;line-height:1.15;">She's their regular now. Every visit after this one, <i style="color:#e8b9a8;">gone.</i></div>
+        </div>
+        <div style="background:#f3e9da;color:#3b1f2b;border-radius:28px;padding:30px;display:flex;flex-direction:column;gap:14px;" data-reveal="" data-reveal-delay="150">
+          <div style="font-size:12.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#5f6e51;">With it</div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="align-self:flex-end;background:#a44f33;color:#fbf6ee;padding:10px 15px;border-radius:18px 18px 6px 18px;font-size:14.5px;max-width:85%;">Hi! Any openings Friday for highlights?</div>
+            <div style="align-self:flex-start;background:#e6d6c0;padding:10px 15px;border-radius:18px 18px 18px 6px;font-size:14.5px;max-width:85%;">Maya has Friday at 2:00. Want me to hold it for you?</div>
+            <div style="align-self:flex-end;background:#a44f33;color:#fbf6ee;padding:10px 15px;border-radius:18px 18px 6px 18px;font-size:14.5px;max-width:85%;">Yes please!</div>
+            <div style="align-self:flex-start;font-size:11.5px;color:#6d5a55;">11:49 PM · Booked in under a minute</div>
+          </div>
+          <div style="margin-top:auto;padding-top:18px;border-top:1px dashed #cdb697;font-family:Cormorant,serif;font-size:28px;line-height:1.15;">You wake up to a full Friday and a <i style="color:#a44f33;">new regular.</i></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:clamp(24px,4vw,36px);">
+        <a href="#try" style="background:#e8b9a8;color:#3b1f2b;text-decoration:none;font-weight:500;font-size:15.5px;padding:15px 30px;border-radius:40px;" style-hover="background:#f3e9da;color:#3b1f2b;">Try booking with the assistant</a>
+        <a href="#offer" style="border:1px solid #e8b9a8;color:#f3e9da;text-decoration:none;font-weight:500;font-size:15.5px;padding:15px 30px;border-radius:40px;" style-hover="background:rgba(243,233,218,.1);color:#f3e9da;">See the deal</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="try" style="max-width:1140px;margin:0 auto;padding:clamp(48px,8vw,80px) 22px;scroll-margin-top:70px;">
+    <div style="display:flex;flex-wrap:wrap;gap:20px 48px;align-items:flex-end;justify-content:space-between;" data-reveal="">
+      <h2 style="font-family:Cormorant,serif;font-weight:400;font-size:clamp(40px,5.4vw,64px);line-height:1;max-width:13ch;text-wrap:balance;">Try it. Watch your book <i style="color:#a44f33;">fill itself.</i></h2>
+      <p style="color:#6d5a55;font-size:17px;max-width:44ch;text-wrap:pretty;">Play the client on the left. Every booking, cancellation and waitlist refill lands in your studio book on the right, synced to Google Calendar, your email and your stylist's phone. No DMs, no sticky notes, no chasing.</p>
+    </div>
+    <div style="margin-top:clamp(24px,4vw,36px);display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;">
+      <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:14px;" data-reveal="">
+        <div style="font-family:Cormorant,serif;font-style:italic;font-size:22px;color:#6d5a55;display:flex;align-items:center;gap:10px;"><span style="color:#b8923a;font-style:normal;font-size:14px;">✦</span>Your client, 11:47pm</div>
+        <div style="background:#fbf6ee;border:1px solid #e2d2bd;border-radius:30px;overflow:hidden;box-shadow:0 40px 80px -44px rgba(59,31,43,.55);">
+          <div style="display:flex;align-items:center;gap:12px;padding:18px 20px;background:#3b1f2b;color:#f3e9da;">
+            <div style="width:42px;height:42px;border-radius:50%;background:#d9a58e;color:#3b1f2b;display:grid;place-items:center;font-family:'Pinyon Script',cursive;font-size:24px;">R</div>
+            <div style="flex:1;">
+              <div style="font-family:Cormorant,serif;font-weight:500;font-size:22px;line-height:1.1;">Rowan &amp; Sage</div>
+              <div style="font-size:12.5px;opacity:.85;display:flex;align-items:center;gap:7px;"><span style="color:#d9b45a;animation:twinkle 2.4s infinite;">✦</span>Booking open, even when we're not</div>
+            </div>
+            <button sc-camel-on-click="{{ restart }}" style="background:transparent;border:1px solid rgba(243,233,218,.35);color:#f3e9da;font-family:inherit;font-size:12.5px;font-weight:500;padding:7px 13px;border-radius:20px;cursor:pointer;" style-hover="background:rgba(243,233,218,.12);">Restart</button>
+          </div>
+          <div ref="{{ logRef }}" style="height:clamp(340px,58vh,430px);overflow-y:auto;padding:20px 18px;display:flex;flex-direction:column;gap:11px;">
+            <sc-for list="{{ msgs }}" as="m" hint-placeholder-count="0">
+              <sc-if value="{{ m.isDiv }}"><div style="align-self:center;text-align:center;font-family:Cormorant,serif;font-style:italic;font-size:17px;color:#8a6a5a;padding:8px 0;animation:rise .3s ease;">✦ {{ m.text }} ✦</div></sc-if>
+              <sc-if value="{{ m.isBot }}"><div style="align-self:flex-start;max-width:84%;background:#efe2d0;padding:12px 16px;border-radius:20px 20px 20px 6px;font-size:15px;animation:rise .3s ease;">{{ m.text }}</div></sc-if>
+              <sc-if value="{{ m.isUsr }}"><div style="align-self:flex-end;max-width:84%;background:#a44f33;color:#fbf6ee;padding:12px 16px;border-radius:20px 20px 6px 20px;font-size:15px;font-weight:500;animation:rise .3s ease;">{{ m.text }}</div></sc-if>
+              <sc-if value="{{ m.isNote }}"><div style="align-self:flex-start;font-size:12px;font-weight:500;color:#5f6e51;margin:-4px 0 0 6px;display:flex;align-items:center;gap:6px;"><span style="color:#8a9a7b;">✿</span>{{ m.text }}</div></sc-if>
+              <sc-if value="{{ m.isLead }}">
+                <div style="align-self:stretch;background:#e9ecdf;border:1px dashed #9aaa89;border-radius:20px;padding:15px 18px;font-size:14px;animation:rise .3s ease;">
+                  <div style="font-family:Cormorant,serif;font-weight:600;font-size:21px;color:#4b5a3e;margin-bottom:6px;">{{ m.text }}</div>
+                  <sc-for list="{{ m.rows }}" as="r"><div style="display:flex;justify-content:space-between;gap:12px;padding:3px 0;color:#6d5a55;"><span>{{ r.k }}</span><b style="color:#3b1f2b;font-weight:600;">{{ r.v }}</b></div></sc-for>
+                </div>
+              </sc-if>
+            </sc-for>
+            <sc-if value="{{ typing }}"><div style="align-self:flex-start;display:flex;gap:5px;padding:14px 16px;background:#efe2d0;border-radius:20px 20px 20px 6px;"><span style="width:7px;height:7px;border-radius:50%;background:#a44f33;animation:blink 1s infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:#a44f33;animation:blink 1s .2s infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:#a44f33;animation:blink 1s .4s infinite;"></span></div></sc-if>
+          </div>
+          <div style="border-top:1px solid #e2d2bd;padding:14px 16px;min-height:68px;display:flex;gap:9px;flex-wrap:wrap;align-items:center;">
+            <sc-for list="{{ chips }}" as="c" hint-placeholder-count="0">
+              <button sc-camel-on-click="{{ c.go }}" style="font-family:inherit;font-weight:500;font-size:14.5px;background:{{ c.bg }};color:{{ c.fg }};border:1px solid #a44f33;padding:10px 18px;border-radius:24px;cursor:pointer;" style-hover="background:#a44f33;color:#fbf6ee;">{{ c.t }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1.5 1 540px;min-width:0;display:flex;flex-direction:column;gap:14px;" data-reveal="" data-reveal-delay="150">
+        <div style="font-family:Cormorant,serif;font-style:italic;font-size:22px;color:#6d5a55;display:flex;align-items:center;gap:10px;"><span style="color:#b8923a;font-style:normal;font-size:14px;">✦</span>Your studio book, updating live</div>
+        <div style="background:#fbf6ee;border:1px solid #e2d2bd;border-radius:30px;overflow:hidden;box-shadow:0 40px 80px -44px rgba(59,31,43,.55);">
+          <div style="display:flex;align-items:center;gap:8px;padding:14px 20px;background:#efe2d0;border-bottom:1px solid #e2d2bd;flex-wrap:wrap;">
+            <span style="width:11px;height:11px;border-radius:50%;background:#d9a58e;"></span><span style="width:11px;height:11px;border-radius:50%;background:#e9c9a0;"></span><span style="width:11px;height:11px;border-radius:50%;background:#b9c2a6;"></span>
+            <div style="margin-left:auto;display:flex;gap:6px;font-size:13px;">
+              <span style="background:#3b1f2b;color:#f3e9da;padding:5px 12px;border-radius:16px;">This week</span>
+              <span style="padding:5px 12px;color:#6d5a55;">Staff</span>
+              <span style="padding:5px 12px;color:#6d5a55;">Waitlist</span>
+            </div>
+          </div>
+          <div style="padding:20px 20px 8px;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px;">
+              <div style="font-family:Cormorant,serif;font-weight:500;font-size:28px;">Bookings</div>
+              <div style="font-size:13px;color:#6d5a55;">Tap any row to edit, move or reassign</div>
+            </div>
+            <div style="overflow-x:auto;">
+              <div style="min-width:500px;display:flex;flex-direction:column;">
+                <div style="display:grid;grid-template-columns:1fr 1.2fr .8fr 1fr 118px;gap:10px;padding:8px 12px;font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#8a6a5a;">
+                  <span>Client</span><span>Service</span><span>Stylist</span><span>When</span><span>Status</span>
+                </div>
+                <sc-for list="{{ rows }}" as="r" hint-placeholder-count="3">
+                  <div style="display:grid;grid-template-columns:1fr 1.2fr .8fr 1fr 118px;gap:10px;align-items:center;padding:12px;border-top:1px solid #ece0cf;font-size:14.5px;background:{{ r.rowBg }};animation:rise .4s ease;cursor:pointer;" style-hover="background:#f3e9da;">
+                    <b style="font-weight:600;">{{ r.client }}</b><span>{{ r.svc }}</span><span>{{ r.who }}</span><span style="text-decoration:{{ r.strike }};">{{ r.when }}</span>
+                    <span style="justify-self:start;font-size:12.5px;font-weight:600;padding:4px 11px;border-radius:14px;background:{{ r.bg }};color:{{ r.fg }};">{{ r.status }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+          <div style="padding:16px 20px 20px;border-top:1px solid #e2d2bd;background:#f7efe3;">
+            <div style="font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#8a6a5a;margin-bottom:10px;">Sent automatically</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px;">
+              <sc-for list="{{ syncs }}" as="s" hint-placeholder-count="4">
+                <div style="display:flex;align-items:center;gap:10px;background:#fbf6ee;border:1px solid #e2d2bd;border-radius:16px;padding:10px 13px;">
+                  <span style="width:9px;height:9px;border-radius:50%;background:{{ s.dot }};flex:0 0 auto;"></span>
+                  <div style="flex:1;min-width:0;"><div style="font-size:14px;font-weight:500;">{{ s.name }}</div><div style="font-size:12px;color:#6d5a55;">{{ s.note }}</div></div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:clamp(28px,5vw,44px);background:#3b1f2b;color:#f3e9da;border-radius:30px;padding:clamp(24px,4vw,40px) clamp(22px,4vw,44px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 36px;" data-reveal="">
+      <div style="flex:1 1 360px;min-width:0;">
+        <div style="font-family:Cormorant,serif;font-weight:400;font-size:clamp(30px,4vw,44px);line-height:1.05;text-wrap:balance;">That's your whole night, <i style="color:#e8b9a8;">handled.</i></div>
+        <div style="margin-top:8px;color:#e6d3d2;font-size:16px;">First month free. Build <s style="opacity:.65;">$99</s> $69. Live this week.</div>
+      </div>
+      <a href="{{ mainSiteUrl }}" style="flex:0 0 auto;background:#e8b9a8;color:#3b1f2b;text-decoration:none;font-weight:600;font-size:17px;padding:18px 34px;border-radius:40px;box-shadow:0 14px 30px -12px rgba(232,185,168,.6);" style-hover="background:#f3e9da;color:#3b1f2b;">Set this up for my salon</a>
+    </div>
+  </section>
+
+  <section style="max-width:1140px;margin:0 auto;padding:clamp(16px,3vw,32px) 22px clamp(48px,8vw,80px);">
+    <h2 style="font-family:Cormorant,serif;font-weight:400;font-size:clamp(40px,5.4vw,64px);line-height:1;max-width:15ch;text-wrap:balance;" data-reveal="">Your front desk, minus the <i style="color:#a44f33;">front desk.</i></h2>
+    <div style="margin-top:clamp(28px,5vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:22px;">
+      <div style="background:#ecd9c8;border-radius:200px 200px 26px 26px;padding:clamp(40px,7vw,58px) 26px 30px;text-align:center;" data-reveal="">
+        <div style="font-family:'Pinyon Script',cursive;font-size:44px;color:#a44f33;line-height:1;">one</div>
+        <h3 style="font-family:Cormorant,serif;font-weight:500;font-size:29px;line-height:1.1;margin:14px 0 10px;">Books while your hands are full</h3>
+        <p style="color:#6d5a55;font-size:15.5px;text-wrap:pretty;">Mid-color, mid-cut, or fast asleep. It answers your website and Instagram so nobody's left waiting.</p>
+      </div>
+      <div style="background:#e7e1c9;border-radius:200px 200px 26px 26px;padding:clamp(40px,7vw,58px) 26px 30px;text-align:center;" data-reveal="" data-reveal-delay="120">
+        <div style="font-family:'Pinyon Script',cursive;font-size:44px;color:#8a6a2a;line-height:1;">two</div>
+        <h3 style="font-family:Cormorant,serif;font-weight:500;font-size:29px;line-height:1.1;margin:14px 0 10px;">Fills cancellations on its own</h3>
+        <p style="color:#6d5a55;font-size:15.5px;text-wrap:pretty;">Someone drops their 2pm? It offers the spot to your waitlist and fills it. Empty chairs stop costing you.</p>
+      </div>
+      <div style="background:#dfe3d3;border-radius:200px 200px 26px 26px;padding:clamp(40px,7vw,58px) 26px 30px;text-align:center;" data-reveal="" data-reveal-delay="240">
+        <div style="font-family:'Pinyon Script',cursive;font-size:44px;color:#5f6e51;line-height:1;">three</div>
+        <h3 style="font-family:Cormorant,serif;font-weight:500;font-size:29px;line-height:1.1;margin:14px 0 10px;">Never guesses for you</h3>
+        <p style="color:#6d5a55;font-size:15.5px;text-wrap:pretty;">Only offers the times you've opened and the prices you've set. Anything else, it hands to you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="offer" style="max-width:1140px;margin:0 auto;padding:0 22px clamp(48px,8vw,80px);scroll-margin-top:80px;">
+    <div style="background:#3b1f2b;color:#f3e9da;border-radius:36px;padding:clamp(26px,5vw,60px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:44px;align-items:center;" data-reveal="">
+      <div>
+        <div style="color:#d9b45a;letter-spacing:.5em;font-size:13px;">✦ ☾ ✦</div>
+        <h2 style="font-family:Cormorant,serif;font-weight:400;font-size:clamp(40px,5.2vw,62px);line-height:1;margin-top:18px;text-wrap:balance;">Not another bill. <i style="color:#e8b9a8;">A leg up.</i></h2>
+        <p style="margin-top:18px;color:#e6d3d2;font-size:17px;max-width:42ch;text-wrap:pretty;">A custom site and booking setup can run into the thousands. This is the same kind of care, priced so a small studio can actually say yes. Built in your colors, added to your site and Instagram, and looked after every month.</p>
+        <p style="margin-top:14px;color:#cdb3b8;font-size:15px;">No contract. No per-booking fees. Cancel anytime.</p>
+      </div>
+      <div style="background:#f3e9da;color:#3b1f2b;border-radius:28px;padding:30px;display:flex;flex-direction:column;gap:0;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:14px;padding-bottom:20px;border-bottom:1px dashed #cdb697;">
+          <div>
+            <div style="font-size:12.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#6d5a55;">The build</div>
+            <div style="font-size:14.5px;color:#6d5a55;margin-top:4px;">Site + assistant, one time</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:14px;color:#6d5a55;"><s>$99</s> <span style="background:#a44f33;color:#fbf6ee;font-weight:600;font-size:12px;padding:3px 8px;border-radius:12px;margin-left:4px;">30% off</span></div>
+            <div style="font-family:Cormorant,serif;font-weight:500;font-size:56px;line-height:1;">$69</div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:14px;padding:20px 0;">
+          <div>
+            <div style="font-size:12.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#6d5a55;">Care &amp; hosting</div>
+            <div style="font-size:14.5px;color:#6d5a55;margin-top:4px;">Then $99/mo, cancel anytime</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:14px;color:#5f6e51;font-weight:600;">First month</div>
+            <div style="font-family:Cormorant,serif;font-weight:500;font-size:56px;line-height:1;">Free</div>
+          </div>
+        </div>
+        <a href="{{ mainSiteUrl }}" style="display:block;text-align:center;background:#a44f33;color:#fbf6ee;text-decoration:none;font-weight:500;font-size:16.5px;padding:16px 24px;border-radius:40px;" style-hover="background:#3b1f2b;color:#f3e9da;">Get this for my salon</a>
+        <a href="#try" style="display:block;text-align:center;margin-top:12px;font-size:14px;font-weight:500;">Try the demo again</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="border-top:1px solid #e2d2bd;">
+  <div style="max-width:1140px;margin:0 auto;padding:30px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;font-size:14px;color:#6d5a55;">
+    <span>Rowan &amp; Sage is a demo studio. Your name, services and colors go here.</span>
+    <a href="{{ mainSiteUrl }}" style="font-weight:500;">Built with love by Precision Guesswork Technologies LLC</a>
+  </div>
+</footer>
+<script>
+/* Minimal standalone runtime for the design-tool's demo components.
+   Runs the exported <x-dc> template + `class Component extends DCLogic` UNCHANGED,
+   so each vertical renders exactly as designed — no proprietary bundler. */
+var React = { createRef: function () { return { current: null }; } };
+
+var DCLogic = (function () {
+  function DCLogic(props) { this.props = props || {}; }
+  DCLogic.prototype.setState = function (u, cb) {
+    var p = (typeof u === "function") ? u(this.state) : u;
+    this.state = Object.assign({}, this.state, p);
+    if (this._engine) { this._engine.render(); if (this.componentDidUpdate) this.componentDidUpdate(); }
+    if (typeof cb === "function") cb();
+  };
+  return DCLogic;
+})();
+
+var DCEngine = (function () {
+  function strip(v) { return String(v).replace(/^\s*\{\{\s*/, "").replace(/\s*\}\}\s*$/, ""); }
+  function evalExpr(path, scope) {
+    var parts = path.split("."), v = scope;
+    for (var i = 0; i < parts.length; i++) { if (v == null) return undefined; v = v[parts[i].trim()]; }
+    return v;
+  }
+  function interpolate(str, scope) {
+    return str.replace(/\{\{\s*([\s\S]*?)\s*\}\}/g, function (_, e) { var v = evalExpr(e, scope); return v == null ? "" : String(v); });
+  }
+  function attachHover(el, spec) {
+    var props = spec.split(";").filter(Boolean).map(function (p) { var i = p.indexOf(":"); return [p.slice(0, i).trim(), p.slice(i + 1).trim()]; });
+    var orig = props.map(function (p) { return [p[0], el.style.getPropertyValue(p[0])]; });
+    el.addEventListener("mouseenter", function () { props.forEach(function (p) { el.style.setProperty(p[0], p[1]); }); });
+    el.addEventListener("mouseleave", function () { orig.forEach(function (p) { el.style.setProperty(p[0], p[1]); }); });
+  }
+
+  // Build a fresh DOM subtree from a template element, resolving everything against `scope`.
+  function render(sourceEl, scope) {
+    var frag = document.createDocumentFragment();
+    var kids = Array.prototype.slice.call(sourceEl.childNodes);
+    for (var i = 0; i < kids.length; i++) frag.appendChild(renderNode(kids[i], scope));
+    return frag;
+  }
+  function renderNode(node, scope) {
+    if (node.nodeType === 3) return document.createTextNode(interpolate(node.data, scope));
+    if (node.nodeType === 8) return document.createComment("");
+    if (node.nodeType !== 1) return document.createTextNode("");
+    var tag = node.tagName.toLowerCase();
+    if (tag === "sc-if") {
+      if (!evalExpr(strip(node.getAttribute("value")), scope)) return document.createDocumentFragment();
+      return render(node, scope);
+    }
+    if (tag === "sc-for") {
+      var list = evalExpr(strip(node.getAttribute("list")), scope) || [];
+      var as = node.getAttribute("as"), f = document.createDocumentFragment();
+      list.forEach(function (item) { var s2 = Object.assign({}, scope); s2[as] = item; f.appendChild(render(node, s2)); });
+      return f;
+    }
+    var el = document.createElement(node.tagName);
+    for (var a = 0; a < node.attributes.length; a++) {
+      var name = node.attributes[a].name, val = node.attributes[a].value;
+      if (name === "sc-camel-on-click") { var fn = evalExpr(strip(val), scope); if (typeof fn === "function") el.addEventListener("click", fn); }
+      else if (name === "ref") { var r = evalExpr(strip(val), scope); if (r) r.current = el; }
+      else if (name === "style-hover") { attachHover(el, val); }
+      else if (name === "data-reveal" || name === "data-reveal-delay") { el.setAttribute(name, val); }
+      else el.setAttribute(name, interpolate(val, scope));
+    }
+    var kids = Array.prototype.slice.call(node.childNodes);
+    for (var k = 0; k < kids.length; k++) el.appendChild(renderNode(kids[k], scope));
+    return el;
+  }
+
+  // Process the STATIC part of the page in place (interpolate {{}}, bind handlers/refs/hover).
+  function processStatic(el, scope) {
+    for (var a = el.attributes.length - 1; a >= 0; a--) {
+      var name = el.attributes[a].name, val = el.attributes[a].value;
+      if (name === "sc-camel-on-click") { var fn = evalExpr(strip(val), scope); el.removeAttribute(name); if (typeof fn === "function") el.addEventListener("click", fn); }
+      else if (name === "ref") { var r = evalExpr(strip(val), scope); el.removeAttribute(name); if (r) r.current = el; }
+      else if (name === "style-hover") { el.removeAttribute(name); attachHover(el, val); }
+      else if (val.indexOf("{{") !== -1) el.setAttribute(name, interpolate(val, scope));
+    }
+    var kids = Array.prototype.slice.call(el.childNodes);
+    for (var i = 0; i < kids.length; i++) {
+      var n = kids[i];
+      if (n.nodeType === 3) { if (n.data.indexOf("{{") !== -1) n.data = interpolate(n.data, scope); }
+      else if (n.nodeType === 1) processStatic(n, scope);
+    }
+  }
+
+  function Engine() {}
+  Engine.prototype.mount = function (component, root) {
+    component._engine = this; this.c = component; this.root = root;
+    var all = Array.prototype.slice.call(root.querySelectorAll("sc-for, sc-if"));
+    var top = all.filter(function (el) { return !(el.parentElement && el.parentElement.closest("sc-for, sc-if")); });
+    this.records = top.map(function (el) {
+      var ph = document.createComment("dc");
+      el.parentNode.insertBefore(ph, el);
+      el.parentNode.removeChild(el);
+      return {
+        kind: el.tagName.toUpperCase(), tpl: el, placeholder: ph,
+        listExpr: el.getAttribute("list") ? strip(el.getAttribute("list")) : null,
+        asName: el.getAttribute("as") || null,
+        valueExpr: el.getAttribute("value") ? strip(el.getAttribute("value")) : null,
+        instances: [], nodes: null
+      };
+    });
+    var scope = this.c.renderVals();
+    processStatic(root, scope);
+    this.render();
+    if (this.c.componentDidMount) this.c.componentDidMount();
+  };
+  Engine.prototype.render = function () {
+    var scope = this.c.renderVals();
+    this.records.forEach(function (rec) {
+      if (rec.kind === "SC-FOR") reconcileFor(rec, scope); else reconcileIf(rec, scope);
+    });
+  };
+  function reconcileFor(rec, scope) {
+    var list = evalExpr(rec.listExpr, scope) || [];
+    var old = rec.instances, next = [];
+    for (var i = 0; i < list.length; i++) {
+      if (old[i] && old[i].item === list[i]) { next.push(old[i]); }
+      else {
+        var s2 = Object.assign({}, scope); s2[rec.asName] = list[i];
+        next.push({ item: list[i], nodes: Array.prototype.slice.call(render(rec.tpl, s2).childNodes) });
+      }
+    }
+    var keep = new Set(); next.forEach(function (inst) { inst.nodes.forEach(function (n) { keep.add(n); }); });
+    old.forEach(function (inst) { inst.nodes.forEach(function (n) { if (!keep.has(n) && n.parentNode) n.parentNode.removeChild(n); }); });
+    var ph = rec.placeholder;
+    next.forEach(function (inst) { inst.nodes.forEach(function (n) { ph.parentNode.insertBefore(n, ph); }); });
+    rec.instances = next;
+  }
+  function reconcileIf(rec, scope) {
+    var on = !!evalExpr(rec.valueExpr, scope);
+    if (on && !rec.nodes) {
+      rec.nodes = Array.prototype.slice.call(render(rec.tpl, scope).childNodes);
+      var ph = rec.placeholder;
+      rec.nodes.forEach(function (n) { ph.parentNode.insertBefore(n, ph); });
+    } else if (!on && rec.nodes) {
+      rec.nodes.forEach(function (n) { if (n.parentNode) n.parentNode.removeChild(n); });
+      rec.nodes = null;
+    }
+  }
+  return new Engine();
+})();
+
+class Component extends DCLogic {
+  state = { msgs: [], chips: [], typing: false, notifs: [], clock: '11:47', day: 'Tuesday, March 11', ctx: {}, booked: false, cancelled: false, refill: null };
+  logRef = React.createRef();
+  run = 0;
+  componentDidMount() { this.go(() => this.start()); setTimeout(() => this.reveal(), 60); }
+  componentWillUnmount() { this.run++; this.io && this.io.disconnect(); }
+  componentDidUpdate() { const l = this.logRef.current; if (l) l.scrollTop = l.scrollHeight; }
+  go(fn) { fn().catch(() => {}); }
+  wait(ms) { const r = this.run; return new Promise((res, rej) => setTimeout(() => (r === this.run ? res() : rej('stale')), ms)); }
+  push(m) { this.setState(s => ({ msgs: [...s.msgs, m] })); }
+  chips(list) { this.setState({ chips: list }); }
+  notify(n) { this.setState(s => ({ notifs: [...s.notifs, n] })); }
+  async bot(text) { this.setState({ typing: true }); await this.wait(800); this.setState({ typing: false }); this.push({ isBot: true, text }); await this.wait(150); }
+  user(text) { this.chips([]); this.push({ isUsr: true, text }); }
+
+  async start() {
+    this.push({ isDiv: true, text: 'Tuesday, 11:47 PM, studio closed' });
+    await this.wait(300);
+    await this.bot("Hi there, welcome to Rowan & Sage. What can I book for you?");
+    this.chips([{ t: 'Highlights', a: 'svc' }, { t: 'Cut & style', a: 'svc' }, { t: 'Facial', a: 'svc' }]);
+  }
+  async svc(t) {
+    this.user(t === 'Facial' ? 'Do you do facials?' : `I'd love ${t === 'Highlights' ? 'some highlights' : 'a ' + t.toLowerCase()}`);
+    this.setState(s => ({ ctx: { ...s.ctx, svc: t } }));
+    this.push({ isNote: true, text: 'Real openings from your book, never invented' });
+    await this.bot("Lovely. Maya has Friday at 2:00 or Saturday at 10:30. Which feels right?");
+    this.chips([{ t: 'Friday 2:00', a: 'when' }, { t: 'Saturday 10:30', a: 'when' }]);
+  }
+  async when(t) {
+    this.user(t + ' please');
+    this.setState(s => ({ ctx: { ...s.ctx, when: t } }));
+    await this.bot("Perfect, I'll hold that for you. How would you like your confirmation, text or email?");
+    this.chips([{ t: 'Text me', a: 'via' }, { t: 'Email me', a: 'via' }]);
+  }
+  async via(t) {
+    const email = t === 'Email me';
+    this.user(email ? 'Email is best' : 'Text is best');
+    this.setState(s => ({ ctx: { ...s.ctx, via: email ? 'email' : 'text', contact: email ? 'priya.m@gmail.com' : '(555) 555-0197' } }));
+    await this.bot(email ? "Great. What's your name and email?" : "Great. What's your name and number?");
+    this.chips([{ t: email ? 'Type name + email' : 'Type name + number', a: 'contact', hi: true }]);
+  }
+  async contact() {
+    const c = this.state.ctx;
+    this.user('Priya, ' + c.contact);
+    await this.bot(`You're booked, Priya! Your confirmation is on its way by ${c.via}. Can't wait to see you.`);
+    this.push({ isLead: true, text: 'Booking confirmed', rows: [{ k: 'Client', v: 'Priya' }, { k: 'Service', v: c.svc }, { k: 'With', v: 'Maya' }, { k: 'When', v: c.when }, { k: 'Confirmed by', v: c.via === 'email' ? 'Email' : 'Text' }] });
+    this.setState({ clock: '11:49', booked: true });
+    await this.wait(500);
+    this.notify({ title: 'New booking', time: 'now', body: `Priya · ${c.svc} with Maya · ${c.when}`, color: '#a44f33' });
+    await this.wait(700);
+    this.chips([{ t: 'Skip to next morning', a: 'morning', hi: true }]);
+  }
+  async morning() {
+    this.chips([]);
+    this.setState({ clock: '9:12', day: 'Wednesday, March 12', cancelled: true });
+    this.push({ isDiv: true, text: 'Wednesday, 9:12 AM, Jess cancels Thursday 11:00' });
+    await this.wait(400);
+    this.notify({ title: 'Cancellation', time: '9:12', body: 'Jess cancelled Thu 11:00 with Maya. Offering it to your waitlist.', color: '#8a6a5a' });
+    await this.bot("Morning Priya! A spot just opened with Maya tomorrow at 11:00. Want it instead?");
+    this.chips([{ t: 'Yes, grab it', a: 'yes' }, { t: 'Keep my time', a: 'keep' }]);
+  }
+  async yes() {
+    this.user('Yes, grab it!');
+    this.setState({ refill: 'Priya' });
+    await this.bot("Done. You're in Thursday at 11:00, and your old slot is back open for someone else.");
+    await this.wait(300);
+    this.notify({ title: 'Slot refilled', time: '9:14', body: 'Thu 11:00 is now Priya. Her old slot went to the waitlist. Zero empty chairs.', color: '#5f6e51' });
+    this.chips([{ t: 'Run it again', a: 'restart' }]);
+  }
+  async keep() {
+    this.user("I'll keep my time, thanks");
+    this.setState({ refill: 'Dana' });
+    await this.bot("No problem, you're all set. I'll offer it to the next person on the waitlist.");
+    await this.wait(300);
+    this.notify({ title: 'Slot refilled', time: '9:15', body: 'Thu 11:00 went to Dana from the waitlist. Zero empty chairs.', color: '#5f6e51' });
+    this.chips([{ t: 'Run it again', a: 'restart' }]);
+  }
+  restart = () => {
+    this.run++;
+    this.setState({ msgs: [], chips: [], typing: false, notifs: [], clock: '11:47', day: 'Tuesday, March 11', ctx: {}, booked: false, cancelled: false, refill: null }, () => this.go(() => this.start()));
+  };
+  choose(c) {
+    if (c.a === 'restart') return this.restart();
+    this.go(() => this[c.a](c.t));
+  }
+  reveal() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.IntersectionObserver) return;
+    this.io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.style.opacity = '1'; e.target.style.transform = 'none'; this.io.unobserve(e.target);
+    }), { threshold: 0.12 });
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+      el.style.opacity = '0'; el.style.transform = 'translateY(36px)';
+      el.style.transition = 'opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1)';
+      el.style.transitionDelay = (el.getAttribute('data-reveal-delay') || 0) + 'ms';
+      this.io.observe(el);
+    });
+  }
+  rows() {
+    const { booked, cancelled, refill, ctx } = this.state;
+    const tone = { Confirmed: ['#e6ead9', '#4b5a3e'], New: ['#a44f33', '#fbf6ee'], Cancelled: ['#efe2d0', '#8a6a5a'], Moved: ['#e9c9a0', '#5a3f16'], 'From waitlist': ['#3b1f2b', '#f3e9da'], Refilled: ['#e6ead9', '#4b5a3e'] };
+    const r = [
+      { client: 'Ana', svc: 'Trim', who: 'Lena', when: 'Wed 10:00', status: 'Confirmed' },
+      { client: 'Jess', svc: 'Cut & style', who: 'Maya', when: 'Thu 11:00', status: cancelled ? 'Cancelled' : 'Confirmed' },
+      { client: 'Rosa', svc: 'Color', who: 'Lena', when: 'Fri 12:30', status: 'Confirmed' }
+    ];
+    if (booked) r.push({ client: 'Priya', svc: ctx.svc || 'Highlights', who: 'Maya', when: refill === 'Priya' ? 'Thu 11:00' : ctx.when, status: refill === 'Priya' ? 'Moved' : 'New', hot: true });
+    if (refill === 'Dana') r.push({ client: 'Dana', svc: 'Cut & style', who: 'Maya', when: 'Thu 11:00', status: 'From waitlist', hot: true });
+    return r.map(x => ({ ...x, bg: tone[x.status][0], fg: tone[x.status][1], strike: x.status === 'Cancelled' ? 'line-through' : 'none', rowBg: x.hot ? '#fbeee4' : 'transparent' }));
+  }
+  syncs() {
+    const { booked, refill } = this.state;
+    const on = '#5f6e51', off = '#cdb697';
+    return [
+      { name: 'Google Calendar', note: booked ? (refill ? 'Updated with the swap' : 'Added to Maya\'s calendar') : 'Waiting for a booking', dot: booked ? on : off },
+      { name: 'Email to studio', note: booked ? 'Copy sent to the owner' : 'Waiting for a booking', dot: booked ? on : off },
+      { name: 'Text to Maya', note: booked ? 'Her new client, time and service' : 'Waiting for a booking', dot: booked ? on : off },
+      { name: 'Confirmation to Priya', note: booked ? (this.state.ctx.via === 'email' ? 'Emailed with time and address' : 'Texted with time and address') : 'Waiting for a booking', dot: booked ? on : off },
+      { name: 'Waitlist', note: refill ? 'Slot filled, nobody left hanging' : 'Standing by for cancellations', dot: refill ? on : off }
+    ];
+  }
+  renderVals() {
+    return {
+      msgs: this.state.msgs, typing: this.state.typing, notifs: this.state.notifs,
+      noNotifs: this.state.notifs.length === 0, clock: this.state.clock, day: this.state.day,
+      logRef: this.logRef, restart: this.restart,
+      chips: this.state.chips.map(c => ({ t: c.t, go: () => this.choose(c), bg: c.hi ? '#3b1f2b' : 'transparent', fg: c.hi ? '#f3e9da' : '#3b1f2b' })),
+      mainSiteUrl: this.props.mainSiteUrl || '#',
+      rows: this.rows(), syncs: this.syncs()
+    };
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  var __c = new Component({ mainSiteUrl: "https://precisionguessworktech.com" });
+  DCEngine.mount(__c, document.body);
+});
+</script>
+</body>
+</html>

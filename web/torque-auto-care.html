@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Torque Auto Care | A shop that books itself</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f4f1ea;color:#111;font-family:Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55}
+a{color:#111}a:hover{color:#1f4cff}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div style="background:#111;color:#f4f1ea;font-size:14.5px;">
+  <div style="max-width:1160px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;justify-content:center;gap:10px 16px;flex-wrap:wrap;text-align:center;">
+    <span style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:#ffd21f;color:#111;padding:3px 9px;border-radius:7px;">Launch deal</span>
+    <span>Build it for <s style="opacity:.6;">$99</s> <b style="color:#ffd21f;">$69</b>, first month of care free, then $99/mo.</span>
+    <a href="{{ mainSiteUrl }}" style="color:#9fb4ff;font-weight:600;">Find out more</a>
+  </div>
+</div>
+
+<header style="position:sticky;top:0;z-index:30;background:rgba(244,241,234,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:2px solid #111;">
+  <div style="max-width:1160px;margin:0 auto;padding:0 22px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="display:flex;gap:3px;transform:skewX(-18deg);" aria-hidden="true"><span style="width:7px;height:24px;background:#ffd21f;border:1.5px solid #111;border-radius:12px;"></span><span style="width:7px;height:24px;background:#1f4cff;"></span><span style="width:7px;height:24px;background:#111;"></span></span>
+      <div style="font-weight:900;font-stretch:125%;font-size:21px;letter-spacing:-.01em;text-transform:uppercase;">Torque <span style="font-weight:500;">Auto Care</span></div>
+    </div>
+    <a href="{{ mainSiteUrl }}" style="font-size:14px;font-weight:700;text-decoration:none;padding:8px 14px;border:2px solid #111;background:#fff;box-shadow:3px 3px 0 #111;border-radius:12px;" style-hover="background:#ffd21f;color:#111;">← More demos</a>
+  </div>
+</header>
+
+<main>
+  <section style="background:#ffd21f;border-bottom:2px solid #111;position:relative;">
+    <div style="max-width:1160px;margin:0 auto;padding:clamp(40px,7vw,72px) 22px clamp(48px,8vw,80px);">
+      <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;background:#111;color:#ffd21f;padding:6px 12px;border-radius:7px;">Work order #0704 · For repair shops, tire shops and mobile mechanics</div>
+      <h1 style="font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:clamp(40px,7.2vw,92px);line-height:.92;letter-spacing:-.03em;margin-top:22px;max-width:15ch;text-wrap:balance;">You were under a car. <span style="color:#1f4cff;">They called the next shop.</span></h1>
+      <p style="font-size:clamp(17px,2vw,21px);font-weight:500;max-width:44ch;margin-top:22px;text-wrap:pretty;">A missed call at 7pm isn't a voicemail. It's a brake job driving to your competitor, and every oil change after it.</p>
+      <div style="margin-top:clamp(28px,5vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:22px;">
+        <div style="background:#fff;border:2px solid #111;box-shadow:5px 5px 0 #111;padding:24px;display:flex;flex-direction:column;gap:14px;border-radius:20px;" data-reveal="">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;text-transform:uppercase;color:#d42a1e;display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;background:#e5372b;border-radius:50%;"></span>Without it</div>
+          <div style="display:flex;flex-direction:column;border:2px solid #111;border-radius:12px;">
+            <div style="display:flex;justify-content:space-between;gap:10px;padding:12px 14px;"><span><b style="color:#d42a1e;">Missed call</b><br><span style="font-size:13.5px;color:#555;">(555) 555-0142</span></span><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#555;">7:04 PM</span></div>
+            <div style="display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border-top:2px dashed #ddd;"><span><b style="color:#d42a1e;">Missed call</b><br><span style="font-size:13.5px;color:#555;">(555) 555-0142</span></span><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#555;">7:06 PM</span></div>
+            <div style="padding:10px 14px;border-top:2px dashed #ddd;font-size:13.5px;color:#555;text-align:center;">No voicemail left</div>
+          </div>
+          <div style="margin-top:auto;padding-top:14px;border-top:2px solid #111;font-weight:800;font-stretch:112%;font-size:22px;line-height:1.15;text-transform:uppercase;">They called the next shop on Google. That job and every one after, <span style="background:#e5372b;color:#fff;padding:0 6px;">gone.</span></div>
+        </div>
+        <div style="background:#111;color:#f4f1ea;border:2px solid #111;box-shadow:5px 5px 0 #1f4cff;padding:24px;display:flex;flex-direction:column;gap:14px;border-radius:20px;" data-reveal="" data-reveal-delay="150">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;text-transform:uppercase;color:#4be08a;display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;background:#4be08a;border-radius:50%;"></span>With it</div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="align-self:flex-end;background:#1f4cff;color:#fff;font-weight:600;padding:10px 14px;border-radius:14px 14px 4px 14px;font-size:15px;max-width:85%;">Brakes are grinding, can you fit me in?</div>
+            <div style="align-self:flex-start;background:#2b2b2b;padding:10px 14px;border-radius:14px 14px 14px 4px;font-size:15px;max-width:85%;">I can book a diagnostic tomorrow at 8:00 AM so Mike can take a look. Want it?</div>
+            <div style="align-self:flex-end;background:#1f4cff;color:#fff;font-weight:600;padding:10px 14px;border-radius:14px 14px 4px 14px;font-size:15px;max-width:85%;">Perfect, book it</div>
+            <div style="align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#b9b9b9;">7:05 PM · Booked while you finished the job</div>
+          </div>
+          <div style="margin-top:auto;padding-top:14px;border-top:2px solid #333;font-weight:800;font-stretch:112%;font-size:22px;line-height:1.15;text-transform:uppercase;">Tomorrow starts with a full bay and a customer who's <span style="background:#ffd21f;color:#111;padding:0 6px;">yours now.</span></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:clamp(28px,4vw,40px);">
+        <a href="#try" style="min-height:52px;display:inline-flex;align-items:center;background:#111;color:#ffd21f;text-decoration:none;font-weight:800;font-size:16px;padding:0 26px;border:2px solid #111;box-shadow:4px 4px 0 #1f4cff;border-radius:12px;" style-hover="background:#1f4cff;color:#fff;box-shadow:4px 4px 0 #111;">Try booking with the assistant</a>
+        <a href="#offer" style="min-height:52px;display:inline-flex;align-items:center;background:#fff;color:#111;text-decoration:none;font-weight:800;font-size:16px;padding:0 26px;border:2px solid #111;box-shadow:4px 4px 0 #111;border-radius:12px;" style-hover="background:#f4f1ea;color:#111;">See the deal</a>
+      </div>
+    </div>
+    <div style="height:14px;background:repeating-linear-gradient(-45deg,#111 0 14px,#ffd21f 14px 28px);border-top:2px solid #111;" aria-hidden="true"></div>
+  </section>
+
+  <section id="try" style="max-width:1160px;margin:0 auto;padding:clamp(48px,8vw,80px) 22px;scroll-margin-top:70px;">
+    <div style="display:flex;flex-wrap:wrap;gap:16px 48px;align-items:flex-end;justify-content:space-between;" data-reveal="">
+      <h2 style="font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:clamp(32px,4.6vw,54px);line-height:.98;letter-spacing:-.02em;max-width:14ch;text-wrap:balance;">Try it. Watch your board <span style="background:#ffd21f;padding:0 8px;box-decoration-break:clone;-webkit-box-decoration-break:clone;">fill itself.</span></h2>
+      <p style="color:#444;font-size:17px;max-width:46ch;text-wrap:pretty;">Play the customer on the left. Diagnostic bookings, urgent tows and reminders land on your shop board on the right, and get texted to you. No phone tag, no scraps of paper.</p>
+    </div>
+    <div style="margin-top:clamp(24px,4vw,36px);display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start;">
+      <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:12px;" data-reveal="">
+        <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;text-transform:uppercase;color:#555;">01 · Your customer, 7:04 PM</div>
+        <div style="background:#fff;border:2px solid #111;box-shadow:5px 5px 0 #111;overflow:hidden;border-radius:20px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#111;color:#f4f1ea;">
+            <div style="width:38px;height:38px;background:#ffd21f;color:#111;display:grid;place-items:center;font-weight:900;font-stretch:125%;font-size:20px;">T</div>
+            <div style="flex:1;">
+              <div style="font-weight:800;font-stretch:115%;font-size:16px;text-transform:uppercase;">Torque Auto Care</div>
+              <div style="font-size:12.5px;color:#b9b9b9;display:flex;align-items:center;gap:7px;"><span style="width:7px;height:7px;border-radius:50%;background:#4be08a;"></span>Answers day and night</div>
+            </div>
+            <button sc-camel-on-click="{{ restart }}" style="background:transparent;border:1.5px solid #555;color:#f4f1ea;font-family:inherit;font-size:13px;font-weight:700;padding:6px 11px;cursor:pointer;border-radius:12px;" style-hover="background:#ffd21f;color:#111;border-color:#ffd21f;">Restart</button>
+          </div>
+          <div ref="{{ logRef }}" style="height:clamp(340px,58vh,440px);overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:10px;">
+            <sc-for list="{{ msgs }}" as="m" hint-placeholder-count="0">
+              <sc-if value="{{ m.isDiv }}"><div style="align-self:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;text-transform:uppercase;background:#f4f1ea;border:1.5px solid #111;padding:4px 10px;margin:4px 0;text-align:center;animation:rise .3s ease;border-radius:12px;">{{ m.text }}</div></sc-if>
+              <sc-if value="{{ m.isBot }}"><div style="align-self:flex-start;max-width:84%;background:#efece4;padding:11px 14px;border-radius:14px 14px 14px 4px;font-size:15px;animation:rise .3s ease;">{{ m.text }}</div></sc-if>
+              <sc-if value="{{ m.isUsr }}"><div style="align-self:flex-end;max-width:84%;background:#1f4cff;color:#fff;padding:11px 14px;border-radius:14px 14px 4px 14px;font-size:15px;font-weight:600;animation:rise .3s ease;">{{ m.text }}</div></sc-if>
+              <sc-if value="{{ m.isNote }}"><div style="align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;color:#555;margin:-3px 0 0 4px;display:flex;align-items:center;gap:6px;"><span style="width:8px;height:8px;background:#ffd21f;border:1.5px solid #111;border-radius:12px;"></span>{{ m.text }}</div></sc-if>
+              <sc-if value="{{ m.isCall }}">
+                <a href="#try" style="align-self:stretch;display:flex;align-items:center;gap:12px;background:#e5372b;color:#fff;text-decoration:none;padding:14px 16px;border:2px solid #111;box-shadow:4px 4px 0 #111;animation:rise .3s ease;border-radius:12px;" style-hover="color:#fff;background:#d42a1e;">
+                  <span style="width:36px;height:36px;border-radius:50%;background:#fff;color:#e5372b;display:grid;place-items:center;font-weight:900;">☎</span>
+                  <span style="flex:1;"><b style="font-weight:900;font-stretch:115%;font-size:17px;text-transform:uppercase;">Call Mike now</b><br><span style="font-size:13.5px;">(555) 555-0100 · Torque Auto Care</span></span>
+                </a>
+              </sc-if>
+              <sc-if value="{{ m.isLead }}">
+                <div style="align-self:stretch;background:#fffbe6;border:2px solid #111;padding:14px 16px;font-size:14px;animation:rise .3s ease;border-radius:12px;">
+                  <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12.5px;text-transform:uppercase;color:#128a47;margin-bottom:6px;">✓ {{ m.text }}</div>
+                  <sc-for list="{{ m.rows }}" as="r"><div style="display:flex;justify-content:space-between;gap:12px;padding:3px 0;color:#555;border-bottom:1px dashed #e2dccb;"><span>{{ r.k }}</span><b style="color:#111;">{{ r.v }}</b></div></sc-for>
+                </div>
+              </sc-if>
+            </sc-for>
+            <sc-if value="{{ typing }}"><div style="align-self:flex-start;display:flex;gap:5px;padding:13px 15px;background:#efece4;border-radius:14px 14px 14px 4px;"><span style="width:7px;height:7px;border-radius:50%;background:#1f4cff;animation:blink 1s infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:#1f4cff;animation:blink 1s .2s infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:#1f4cff;animation:blink 1s .4s infinite;"></span></div></sc-if>
+          </div>
+          <div style="border-top:2px solid #111;padding:13px 14px;min-height:70px;display:flex;gap:9px;flex-wrap:wrap;align-items:center;background:#faf8f3;">
+            <sc-for list="{{ chips }}" as="c" hint-placeholder-count="0">
+              <button sc-camel-on-click="{{ c.go }}" style="min-height:44px;font-family:inherit;font-weight:700;font-size:14.5px;background:{{ c.bg }};color:{{ c.fg }};border:2px solid {{ c.ring }};padding:0 15px;cursor:pointer;border-radius:12px;" style-hover="background:#ffd21f;color:#111;border-color:#111;">{{ c.t }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1.5 1 540px;min-width:0;display:flex;flex-direction:column;gap:12px;" data-reveal="" data-reveal-delay="150">
+        <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;text-transform:uppercase;color:#555;">02 · Your shop board, updating live</div>
+        <div style="background:#fff;border:2px solid #111;box-shadow:5px 5px 0 #1f4cff;overflow:hidden;border-radius:20px;">
+          <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:#111;color:#f4f1ea;flex-wrap:wrap;">
+            <div style="font-weight:900;font-stretch:125%;font-size:17px;text-transform:uppercase;">Shop board</div>
+            <div style="margin-left:auto;display:flex;gap:4px;font-size:13px;font-weight:700;">
+              <span style="background:#ffd21f;color:#111;padding:5px 12px;border-radius:7px;">Today</span>
+              <span style="padding:5px 12px;color:#b9b9b9;border-radius:7px;">Bays</span>
+              <span style="padding:5px 12px;color:#b9b9b9;border-radius:7px;">Customers</span>
+            </div>
+          </div>
+          <div style="padding:16px 16px 6px;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px;">
+              <div style="font-weight:800;font-stretch:115%;font-size:22px;text-transform:uppercase;">Jobs</div>
+              <div style="font-size:13px;color:#555;">Tap any job to edit, reassign or text the customer</div>
+            </div>
+            <div style="overflow-x:auto;">
+              <div style="min-width:540px;display:flex;flex-direction:column;">
+                <div style="display:grid;grid-template-columns:1.2fr 1.3fr .8fr .8fr 132px;gap:10px;padding:8px 10px;font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;text-transform:uppercase;color:#666;border-bottom:2px solid #111;">
+                  <span>Vehicle</span><span>Job</span><span>Customer</span><span>When</span><span>Status</span>
+                </div>
+                <sc-for list="{{ rows }}" as="r" hint-placeholder-count="3">
+                  <div style="display:grid;grid-template-columns:1.2fr 1.3fr .8fr .8fr 132px;gap:10px;align-items:center;padding:12px 10px;border-bottom:1px solid #e8e3d6;font-size:14.5px;background:{{ r.rowBg }};animation:rise .4s ease;cursor:pointer;" style-hover="background:#faf6e8;">
+                    <b style="font-weight:700;">{{ r.veh }}</b><span style="color:#333;">{{ r.job }}</span><span style="color:#333;">{{ r.cust }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#333;">{{ r.when }}</span>
+                    <span style="justify-self:start;display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;padding:4px 9px;background:{{ r.bg }};color:{{ r.fg }};border:1.5px solid {{ r.fg }};border-radius:7px;"><span style="width:7px;height:7px;border-radius:50%;background:{{ r.fg }};"></span>{{ r.status }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+          <div style="padding:14px 16px 16px;border-top:2px solid #111;background:#faf8f3;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;text-transform:uppercase;color:#666;margin-bottom:10px;">Sent automatically</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px;">
+              <sc-for list="{{ syncs }}" as="s" hint-placeholder-count="4">
+                <div style="display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid #111;padding:10px 12px;border-radius:12px;">
+                  <span style="width:10px;height:10px;border-radius:50%;background:{{ s.dot }};flex:0 0 auto;"></span>
+                  <div style="flex:1;min-width:0;"><div style="font-size:14px;font-weight:700;">{{ s.name }}</div><div style="font-size:12.5px;color:#555;">{{ s.note }}</div></div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(32px,5vw,48px);background:#1f4cff;color:#fff;border:2px solid #111;box-shadow:5px 5px 0 #111;padding:clamp(22px,4vw,36px) clamp(22px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 36px;border-radius:20px;" data-reveal="">
+      <div style="flex:1 1 360px;min-width:0;">
+        <div style="font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:clamp(26px,3.6vw,40px);line-height:1;letter-spacing:-.02em;text-wrap:balance;">A full bay tomorrow, <span style="color:#ffd21f;">booked while you slept.</span></div>
+        <div style="margin-top:10px;font-size:16px;font-weight:500;">First month free. Build <s style="opacity:.7;">$99</s> $69. Live this week.</div>
+      </div>
+      <a href="{{ mainSiteUrl }}" style="flex:0 0 auto;min-height:56px;display:inline-flex;align-items:center;background:#ffd21f;color:#111;text-decoration:none;font-weight:900;font-size:17px;padding:0 30px;border:2px solid #111;box-shadow:4px 4px 0 #111;border-radius:12px;" style-hover="background:#fff;color:#111;">Set this up for my shop</a>
+    </div>
+  </section>
+
+  <section style="max-width:1160px;margin:0 auto;padding:clamp(16px,3vw,32px) 22px clamp(48px,8vw,80px);">
+    <h2 style="font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:clamp(32px,4.6vw,54px);line-height:.98;letter-spacing:-.02em;max-width:15ch;text-wrap:balance;" data-reveal="">Your front counter, minus the counter.</h2>
+    <div style="margin-top:clamp(28px,5vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:22px;">
+      <div style="background:#fff;border:2px solid #111;box-shadow:5px 5px 0 #111;padding:24px;border-radius:20px;" data-reveal="">
+        <span style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;background:#ffd21f;border:1.5px solid #111;padding:3px 8px;border-radius:7px;">01</span>
+        <h3 style="font-weight:800;font-stretch:115%;font-size:21px;text-transform:uppercase;line-height:1.1;margin:16px 0 8px;">Books while you wrench</h3>
+        <p style="color:#444;font-size:15.5px;text-wrap:pretty;">Nights, weekends, lunch rush. It books a diagnostic with real customer and vehicle info, never a guessed price.</p>
+      </div>
+      <div style="background:#fff;border:2px solid #111;box-shadow:5px 5px 0 #e5372b;padding:24px;border-radius:20px;" data-reveal="" data-reveal-delay="120">
+        <span style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;background:#e5372b;color:#fff;border:1.5px solid #111;padding:3px 8px;border-radius:7px;">02</span>
+        <h3 style="font-weight:800;font-stretch:115%;font-size:21px;text-transform:uppercase;line-height:1.1;margin:16px 0 8px;">Emergencies go straight to you</h3>
+        <p style="color:#444;font-size:15.5px;text-wrap:pretty;">Stranded, won't start, needs a tow? It skips the booking and puts them on the phone with you in one tap.</p>
+      </div>
+      <div style="background:#fff;border:2px solid #111;box-shadow:5px 5px 0 #1f4cff;padding:24px;border-radius:20px;" data-reveal="" data-reveal-delay="240">
+        <span style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;background:#1f4cff;color:#fff;border:1.5px solid #111;padding:3px 8px;border-radius:7px;">03</span>
+        <h3 style="font-weight:800;font-stretch:115%;font-size:21px;text-transform:uppercase;line-height:1.1;margin:16px 0 8px;">Reminders that stop no-shows</h3>
+        <p style="color:#444;font-size:15.5px;text-wrap:pretty;">A text the morning of. Customers confirm or reschedule themselves, and your board updates. No phone tag.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="offer" style="max-width:1160px;margin:0 auto;padding:0 22px clamp(48px,8vw,80px);scroll-margin-top:80px;">
+    <div style="background:#111;color:#f4f1ea;border:2px solid #111;box-shadow:6px 6px 0 #ffd21f;padding:clamp(26px,5vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:40px;align-items:center;border-radius:20px;" data-reveal="">
+      <div>
+        <span style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;text-transform:uppercase;background:#ffd21f;color:#111;padding:4px 9px;border-radius:7px;">Launch deal</span>
+        <h2 style="font-weight:900;font-stretch:125%;text-transform:uppercase;font-size:clamp(32px,4.6vw,52px);line-height:.98;letter-spacing:-.02em;margin-top:18px;text-wrap:balance;">Not another bill. <span style="color:#ffd21f;">A leg up.</span></h2>
+        <p style="margin-top:16px;color:#d6d3cc;font-size:17px;max-width:42ch;text-wrap:pretty;">A custom site and booking setup can run into the thousands. This is the same kind of work, priced so an independent shop can actually say yes. Built for your shop, added to your site and Google listing, and looked after every month.</p>
+        <p style="margin-top:12px;color:#a8a59e;font-size:15px;">No contract. No per-job fees. Cancel anytime.</p>
+      </div>
+      <div style="background:#f4f1ea;color:#111;border:2px solid #111;padding:24px;display:flex;flex-direction:column;border-radius:12px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:14px;padding-bottom:16px;border-bottom:2px dashed #cfc8b6;">
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;text-transform:uppercase;color:#555;">The build</div>
+            <div style="font-size:14.5px;color:#444;margin-top:4px;">Site + assistant, one time</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:14px;color:#555;"><s>$99</s> <span style="background:#e5372b;color:#fff;font-weight:800;font-size:12px;padding:2px 7px;margin-left:4px;border-radius:7px;">30% off</span></div>
+            <div style="font-weight:900;font-stretch:125%;font-size:50px;line-height:1;letter-spacing:-.03em;">$69</div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:14px;padding:16px 0 20px;">
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;text-transform:uppercase;color:#555;">Care &amp; hosting</div>
+            <div style="font-size:14.5px;color:#444;margin-top:4px;">Then $99/mo, cancel anytime</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:14px;color:#128a47;font-weight:800;">First month</div>
+            <div style="font-weight:900;font-stretch:125%;font-size:50px;line-height:1;letter-spacing:-.03em;">Free</div>
+          </div>
+        </div>
+        <a href="{{ mainSiteUrl }}" style="min-height:54px;display:flex;align-items:center;justify-content:center;background:#ffd21f;color:#111;text-decoration:none;font-weight:900;font-size:16.5px;border:2px solid #111;box-shadow:4px 4px 0 #111;border-radius:12px;" style-hover="background:#1f4cff;color:#fff;">Set this up for my shop</a>
+        <a href="#try" style="display:block;text-align:center;margin-top:14px;font-size:14px;font-weight:700;">Try the demo again</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="border-top:2px solid #111;">
+  <div style="max-width:1160px;margin:0 auto;padding:26px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;font-size:14px;color:#555;">
+    <span>Torque Auto Care is a demo shop. Your name, services and hours go here.</span>
+    <a href="{{ mainSiteUrl }}" style="font-weight:700;">Built by Precision Guesswork Technologies LLC</a>
+  </div>
+</footer>
+<script>
+/* Minimal standalone runtime for the design-tool's demo components.
+   Runs the exported <x-dc> template + `class Component extends DCLogic` UNCHANGED,
+   so each vertical renders exactly as designed — no proprietary bundler. */
+var React = { createRef: function () { return { current: null }; } };
+
+var DCLogic = (function () {
+  function DCLogic(props) { this.props = props || {}; }
+  DCLogic.prototype.setState = function (u, cb) {
+    var p = (typeof u === "function") ? u(this.state) : u;
+    this.state = Object.assign({}, this.state, p);
+    if (this._engine) { this._engine.render(); if (this.componentDidUpdate) this.componentDidUpdate(); }
+    if (typeof cb === "function") cb();
+  };
+  return DCLogic;
+})();
+
+var DCEngine = (function () {
+  function strip(v) { return String(v).replace(/^\s*\{\{\s*/, "").replace(/\s*\}\}\s*$/, ""); }
+  function evalExpr(path, scope) {
+    var parts = path.split("."), v = scope;
+    for (var i = 0; i < parts.length; i++) { if (v == null) return undefined; v = v[parts[i].trim()]; }
+    return v;
+  }
+  function interpolate(str, scope) {
+    return str.replace(/\{\{\s*([\s\S]*?)\s*\}\}/g, function (_, e) { var v = evalExpr(e, scope); return v == null ? "" : String(v); });
+  }
+  function attachHover(el, spec) {
+    var props = spec.split(";").filter(Boolean).map(function (p) { var i = p.indexOf(":"); return [p.slice(0, i).trim(), p.slice(i + 1).trim()]; });
+    var orig = props.map(function (p) { return [p[0], el.style.getPropertyValue(p[0])]; });
+    el.addEventListener("mouseenter", function () { props.forEach(function (p) { el.style.setProperty(p[0], p[1]); }); });
+    el.addEventListener("mouseleave", function () { orig.forEach(function (p) { el.style.setProperty(p[0], p[1]); }); });
+  }
+
+  // Build a fresh DOM subtree from a template element, resolving everything against `scope`.
+  function render(sourceEl, scope) {
+    var frag = document.createDocumentFragment();
+    var kids = Array.prototype.slice.call(sourceEl.childNodes);
+    for (var i = 0; i < kids.length; i++) frag.appendChild(renderNode(kids[i], scope));
+    return frag;
+  }
+  function renderNode(node, scope) {
+    if (node.nodeType === 3) return document.createTextNode(interpolate(node.data, scope));
+    if (node.nodeType === 8) return document.createComment("");
+    if (node.nodeType !== 1) return document.createTextNode("");
+    var tag = node.tagName.toLowerCase();
+    if (tag === "sc-if") {
+      if (!evalExpr(strip(node.getAttribute("value")), scope)) return document.createDocumentFragment();
+      return render(node, scope);
+    }
+    if (tag === "sc-for") {
+      var list = evalExpr(strip(node.getAttribute("list")), scope) || [];
+      var as = node.getAttribute("as"), f = document.createDocumentFragment();
+      list.forEach(function (item) { var s2 = Object.assign({}, scope); s2[as] = item; f.appendChild(render(node, s2)); });
+      return f;
+    }
+    var el = document.createElement(node.tagName);
+    for (var a = 0; a < node.attributes.length; a++) {
+      var name = node.attributes[a].name, val = node.attributes[a].value;
+      if (name === "sc-camel-on-click") { var fn = evalExpr(strip(val), scope); if (typeof fn === "function") el.addEventListener("click", fn); }
+      else if (name === "ref") { var r = evalExpr(strip(val), scope); if (r) r.current = el; }
+      else if (name === "style-hover") { attachHover(el, val); }
+      else if (name === "data-reveal" || name === "data-reveal-delay") { el.setAttribute(name, val); }
+      else el.setAttribute(name, interpolate(val, scope));
+    }
+    var kids = Array.prototype.slice.call(node.childNodes);
+    for (var k = 0; k < kids.length; k++) el.appendChild(renderNode(kids[k], scope));
+    return el;
+  }
+
+  // Process the STATIC part of the page in place (interpolate {{}}, bind handlers/refs/hover).
+  function processStatic(el, scope) {
+    for (var a = el.attributes.length - 1; a >= 0; a--) {
+      var name = el.attributes[a].name, val = el.attributes[a].value;
+      if (name === "sc-camel-on-click") { var fn = evalExpr(strip(val), scope); el.removeAttribute(name); if (typeof fn === "function") el.addEventListener("click", fn); }
+      else if (name === "ref") { var r = evalExpr(strip(val), scope); el.removeAttribute(name); if (r) r.current = el; }
+      else if (name === "style-hover") { el.removeAttribute(name); attachHover(el, val); }
+      else if (val.indexOf("{{") !== -1) el.setAttribute(name, interpolate(val, scope));
+    }
+    var kids = Array.prototype.slice.call(el.childNodes);
+    for (var i = 0; i < kids.length; i++) {
+      var n = kids[i];
+      if (n.nodeType === 3) { if (n.data.indexOf("{{") !== -1) n.data = interpolate(n.data, scope); }
+      else if (n.nodeType === 1) processStatic(n, scope);
+    }
+  }
+
+  function Engine() {}
+  Engine.prototype.mount = function (component, root) {
+    component._engine = this; this.c = component; this.root = root;
+    var all = Array.prototype.slice.call(root.querySelectorAll("sc-for, sc-if"));
+    var top = all.filter(function (el) { return !(el.parentElement && el.parentElement.closest("sc-for, sc-if")); });
+    this.records = top.map(function (el) {
+      var ph = document.createComment("dc");
+      el.parentNode.insertBefore(ph, el);
+      el.parentNode.removeChild(el);
+      return {
+        kind: el.tagName.toUpperCase(), tpl: el, placeholder: ph,
+        listExpr: el.getAttribute("list") ? strip(el.getAttribute("list")) : null,
+        asName: el.getAttribute("as") || null,
+        valueExpr: el.getAttribute("value") ? strip(el.getAttribute("value")) : null,
+        instances: [], nodes: null
+      };
+    });
+    var scope = this.c.renderVals();
+    processStatic(root, scope);
+    this.render();
+    if (this.c.componentDidMount) this.c.componentDidMount();
+  };
+  Engine.prototype.render = function () {
+    var scope = this.c.renderVals();
+    this.records.forEach(function (rec) {
+      if (rec.kind === "SC-FOR") reconcileFor(rec, scope); else reconcileIf(rec, scope);
+    });
+  };
+  function reconcileFor(rec, scope) {
+    var list = evalExpr(rec.listExpr, scope) || [];
+    var old = rec.instances, next = [];
+    for (var i = 0; i < list.length; i++) {
+      if (old[i] && old[i].item === list[i]) { next.push(old[i]); }
+      else {
+        var s2 = Object.assign({}, scope); s2[rec.asName] = list[i];
+        next.push({ item: list[i], nodes: Array.prototype.slice.call(render(rec.tpl, s2).childNodes) });
+      }
+    }
+    var keep = new Set(); next.forEach(function (inst) { inst.nodes.forEach(function (n) { keep.add(n); }); });
+    old.forEach(function (inst) { inst.nodes.forEach(function (n) { if (!keep.has(n) && n.parentNode) n.parentNode.removeChild(n); }); });
+    var ph = rec.placeholder;
+    next.forEach(function (inst) { inst.nodes.forEach(function (n) { ph.parentNode.insertBefore(n, ph); }); });
+    rec.instances = next;
+  }
+  function reconcileIf(rec, scope) {
+    var on = !!evalExpr(rec.valueExpr, scope);
+    if (on && !rec.nodes) {
+      rec.nodes = Array.prototype.slice.call(render(rec.tpl, scope).childNodes);
+      var ph = rec.placeholder;
+      rec.nodes.forEach(function (n) { ph.parentNode.insertBefore(n, ph); });
+    } else if (!on && rec.nodes) {
+      rec.nodes.forEach(function (n) { if (n.parentNode) n.parentNode.removeChild(n); });
+      rec.nodes = null;
+    }
+  }
+  return new Engine();
+})();
+
+class Component extends DCLogic {
+  init = () => ({ msgs: [], chips: [], typing: false, ctx: {}, booked: false, reminded: false, confirmed: false, moved: false, urgent: false });
+  state = this.init();
+  logRef = React.createRef();
+  run = 0;
+  componentDidMount() { this.go(() => this.start()); setTimeout(() => this.reveal(), 60); }
+  componentWillUnmount() { this.run++; this.io && this.io.disconnect(); }
+  componentDidUpdate() { const l = this.logRef.current; if (l) l.scrollTop = l.scrollHeight; }
+  go(fn) { fn().catch(() => {}); }
+  wait(ms) { const r = this.run; return new Promise((res, rej) => setTimeout(() => (r === this.run ? res() : rej('stale')), ms)); }
+  push(m) { this.setState(s => ({ msgs: [...s.msgs, m] })); }
+  chips(list) { this.setState({ chips: list }); }
+  ctx(o) { this.setState(s => ({ ctx: { ...s.ctx, ...o } })); }
+  async bot(text) { this.setState({ typing: true }); await this.wait(800); this.setState({ typing: false }); this.push({ isBot: true, text }); await this.wait(150); }
+  user(text) { this.chips([]); this.push({ isUsr: true, text }); }
+
+  async start() {
+    this.push({ isDiv: true, text: 'Monday 7:04 PM · Shop closed' });
+    await this.wait(300);
+    await this.bot("Thanks for reaching Torque Auto Care. What's going on with your vehicle?");
+    this.chips([{ t: 'Brakes grinding', a: 'issue' }, { t: 'Check engine light', a: 'issue' }, { t: "Won't start, need a tow", a: 'urgentFork', hot: true }]);
+  }
+  async issue(t) {
+    this.user(t === 'Brakes grinding' ? 'My brakes are grinding' : 'My check engine light is on');
+    this.ctx({ issue: t });
+    this.push({ isNote: true, text: 'Books a diagnostic. No quotes or promises over chat' });
+    await this.bot("Got it. Best move is a diagnostic, so Mike can see it in person before promising anything. What year, make and model?");
+    this.chips([{ t: '2018 Honda Civic', a: 'veh' }, { t: '2015 Ford F-150', a: 'veh' }]);
+  }
+  async veh(t) {
+    this.user(t);
+    this.ctx({ veh: t });
+    await this.bot("Thanks. Roughly how many miles on it?");
+    this.chips([{ t: 'Around 90k', a: 'miles' }, { t: 'Around 140k', a: 'miles' }]);
+  }
+  async miles(t) {
+    this.user(t);
+    this.ctx({ miles: t.replace('Around ', '') });
+    await this.bot("Perfect. Diagnostic drop-off is open tomorrow at 8:00 AM or Wednesday at noon. Which works?");
+    this.chips([{ t: 'Tomorrow 8:00 AM', a: 'when' }, { t: 'Wednesday noon', a: 'when' }]);
+  }
+  async when(t) {
+    this.user(t + ' works');
+    this.ctx({ when: t === 'Tomorrow 8:00 AM' ? 'Tue 8:00 AM' : 'Wed 12:00' });
+    await this.bot("Done, I'll hold it. Want your confirmation by text or email?");
+    this.chips([{ t: 'Text me', a: 'via' }, { t: 'Email me', a: 'via' }]);
+  }
+  async via(t) {
+    const email = t === 'Email me';
+    this.user(email ? 'Email is best' : 'Text is best');
+    this.ctx({ via: email ? 'email' : 'text', contact: email ? 'marcus.r@gmail.com' : '(555) 555-0142' });
+    await this.bot(email ? "Great. What's your name and email?" : "Great. What's your name and number?");
+    this.chips([{ t: email ? 'Type name + email' : 'Type name + number', a: 'contact', hi: true }]);
+  }
+  async contact() {
+    const c = this.state.ctx;
+    this.user('Marcus, ' + c.contact);
+    await this.bot(`You're booked, Marcus. Confirmation is on its way by ${c.via}. Mike will take a look and call you with what he finds before any work starts.`);
+    this.push({ isLead: true, text: 'Diagnostic booked', rows: [{ k: 'Customer', v: 'Marcus' }, { k: 'Contact', v: c.contact }, { k: 'Vehicle', v: c.veh }, { k: 'Mileage', v: c.miles }, { k: 'Concern', v: c.issue }, { k: 'Drop-off', v: c.when }] });
+    this.setState({ booked: true });
+    await this.wait(900);
+    this.chips([{ t: 'Skip to drop-off morning', a: 'remind', hi: true }]);
+  }
+  async remind() {
+    this.chips([]);
+    const c = this.state.ctx, tue = c.when.startsWith('Tue');
+    this.push({ isDiv: true, text: `${tue ? 'Tuesday 7:00 AM' : 'Wednesday 9:00 AM'} · Automatic reminder` });
+    this.setState({ reminded: true });
+    await this.wait(400);
+    await this.bot(`Morning Marcus! Reminder from Torque Auto Care: your diagnostic drop-off is today at ${tue ? '8:00 AM' : 'noon'}. Still good?`);
+    this.chips([{ t: 'Confirm', a: 'confirm', hi: true }, { t: 'Need to reschedule', a: 'resched' }]);
+  }
+  async confirm() {
+    this.user("Yep, I'll be there");
+    this.setState({ confirmed: true });
+    await this.bot("See you soon. Keys go in the drop box if nobody's at the counter.");
+    this.chips([{ t: 'Run it again', a: 'restart' }]);
+  }
+  async resched() {
+    this.user('Something came up, can I move it?');
+    await this.bot("No problem. Thursday at 8:00 AM or Friday at 10:00 AM?");
+    this.chips([{ t: 'Thursday 8:00 AM', a: 'moveTo' }, { t: 'Friday 10:00 AM', a: 'moveTo' }]);
+  }
+  async moveTo(t) {
+    this.user(t + ' please');
+    this.ctx({ when: t.startsWith('Thu') ? 'Thu 8:00 AM' : 'Fri 10:00 AM' });
+    this.setState({ moved: true });
+    await this.bot(`Done, you're moved to ${t}. Your old slot is open again for another customer.`);
+    this.chips([{ t: 'Run it again', a: 'restart' }]);
+  }
+  async urgentFork() {
+    this.user("My car won't start and I need a tow");
+    this.setState({ urgent: true });
+    await this.bot("That needs a person right now, not a booking form. I've texted Mike your details. Tap below to call him directly.");
+    this.push({ isCall: true });
+    await this.wait(500);
+    this.chips([{ t: 'Try a regular booking', a: 'restart' }]);
+  }
+  restart = () => { this.run++; this.setState(this.init(), () => this.go(() => this.start())); };
+  choose(c) { if (c.a === 'restart') return this.restart(); this.go(() => this[c.a](c.t)); }
+  reveal() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.IntersectionObserver) return;
+    this.io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.style.opacity = '1'; e.target.style.transform = 'none'; this.io.unobserve(e.target);
+    }), { threshold: 0.12 });
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+      el.style.opacity = '0'; el.style.transform = 'translateY(32px)';
+      el.style.transition = 'opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)';
+      el.style.transitionDelay = (el.getAttribute('data-reveal-delay') || 0) + 'ms';
+      this.io.observe(el);
+    });
+  }
+  rows() {
+    const { booked, reminded, confirmed, moved, urgent, ctx } = this.state;
+    const T = { red: ['#fde8e6', '#c8261b'], amber: ['#fff4cc', '#8a5a00'], green: ['#e3f6ea', '#11783d'], grey: ['#f1eee6', '#555555'] };
+    const r = [
+      { veh: '2019 RAM 1500', job: 'Oil + tire rotation', cust: 'Dave', when: 'Bay 1', status: 'In bay', t: 'green' },
+      { veh: '2016 Toyota Camry', job: 'AC blowing warm', cust: 'Lena', when: 'Tue 10:30', status: 'Parts ordered', t: 'amber' },
+      { veh: '2021 Ford Escape', job: 'State inspection', cust: 'Tom', when: 'Tue 1:00', status: 'Scheduled', t: 'grey' }
+    ];
+    if (urgent) r.unshift({ veh: 'Unknown', job: "Won't start, tow", cust: '(555) 555-0142', when: 'Now', status: 'Call now', t: 'red', hot: true });
+    if (booked) {
+      let status = 'New', t = 'red';
+      if (reminded) { status = 'Reminder sent'; t = 'amber'; }
+      if (confirmed) { status = 'Confirmed'; t = 'green'; }
+      if (moved) { status = 'Rescheduled'; t = 'amber'; }
+      r.push({ veh: `${ctx.veh} · ${ctx.miles}`, job: `Diagnostic: ${ctx.issue.toLowerCase()}`, cust: 'Marcus', when: ctx.when, status, t, hot: true });
+    }
+    return r.map(x => ({ ...x, bg: T[x.t][0], fg: T[x.t][1], rowBg: x.hot ? '#fffbe6' : 'transparent' }));
+  }
+  syncs() {
+    const { booked, reminded, confirmed, moved, urgent, ctx } = this.state;
+    const on = '#17a35a', hot = '#e5372b', off = '#cfc8b6';
+    return [
+      { name: 'Text to Mike', note: urgent ? 'Urgent tow request, sent now' : booked ? 'New diagnostic, with vehicle and contact' : 'Waiting for a customer', dot: urgent ? hot : booked ? on : off },
+      { name: 'Google Calendar', note: moved ? 'Moved to the new time' : booked ? 'Drop-off added to the shop calendar' : 'Waiting for a booking', dot: booked ? on : off },
+      { name: 'Confirmation to Marcus', note: booked ? (ctx.via === 'email' ? 'Emailed with time and address' : 'Texted with time and address') : 'Waiting for a booking', dot: booked ? on : off },
+      { name: 'Drop-off reminder', note: confirmed ? 'Confirmed, no no-show' : moved ? 'Rescheduled by Marcus himself' : reminded ? 'Sent, waiting on Marcus' : 'Goes out the morning of', dot: (confirmed || moved) ? on : reminded ? '#f0b400' : off }
+    ];
+  }
+  renderVals() {
+    return {
+      msgs: this.state.msgs, typing: this.state.typing, logRef: this.logRef, restart: this.restart,
+      chips: this.state.chips.map(c => ({ t: c.t, go: () => this.choose(c), bg: c.hi ? '#111' : c.hot ? '#fde8e6' : '#fff', fg: c.hi ? '#ffd21f' : c.hot ? '#c8261b' : '#111', ring: c.hot ? '#e5372b' : '#111' })),
+      rows: this.rows(), syncs: this.syncs(),
+      mainSiteUrl: this.props.mainSiteUrl || '#'
+    };
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  var __c = new Component({ mainSiteUrl: "https://precisionguessworktech.com" });
+  DCEngine.mount(__c, document.body);
+});
+</script>
+</body>
+</html>
