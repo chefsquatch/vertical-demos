@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>TrueFlow Home Services — never miss the emergency call</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0e2a47; --navy-d:#0a1f36; --sky:#eef4f8; --white:#ffffff;
+    --teal:#12b3a6; --teal-d:#0e988d; --coral:#ff6b4a; --mut:#5b7488; --ink:#173049;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{animation:none!important;transition:none!important}}
+  body{font-family:'DM Sans',system-ui,sans-serif;background:var(--white);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  header{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);z-index:20;border-bottom:1px solid #dbe6ee}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:'Bricolage Grotesque';font-weight:800;font-size:20px;color:var(--navy);display:flex;align-items:center;gap:9px}
+  .brand .drop{width:20px;height:24px;background:var(--teal);border-radius:0 50% 50% 50%;transform:rotate(45deg);flex:0 0 auto}
+  .note{font-size:13.5px;color:var(--mut)}
+
+  .hero{background:linear-gradient(160deg,var(--navy),var(--navy-d));color:var(--sky);border-radius:0 0 28px 28px}
+  .hi{padding:52px 0 46px;display:grid;gap:38px}
+  @media(min-width:880px){.hi{grid-template-columns:1.05fr .95fr;align-items:center;padding:72px 0 62px}}
+  .kick{font-family:'DM Sans';font-weight:600;font-size:13px;color:var(--teal);margin-bottom:16px;display:inline-flex;align-items:center;gap:8px}
+  .kick::before{content:"";width:26px;height:2px;background:var(--teal)}
+  h1{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(33px,6vw,56px);line-height:1.02;letter-spacing:-.02em;color:#fff}
+  .sub{color:#b9cbd9;font-size:clamp(16px,2.1vw,19px);margin-top:20px;max-width:33ch}
+  .cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{font-family:'Bricolage Grotesque';font-weight:700;font-size:15px;background:var(--teal);color:#042e2a;border:none;padding:15px 27px;border-radius:11px;cursor:pointer;text-decoration:none;display:inline-block}
+  .btn:hover{background:var(--teal-d)}
+  .btn.line{background:transparent;color:#fff;border:1px solid #2c516f}
+  .btn.line:hover{border-color:var(--teal)}
+
+  .card{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -28px rgba(4,20,36,.7)}
+  .chead{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid #e4edf3}
+  .chead .av{width:38px;height:38px;border-radius:11px;background:var(--navy);color:var(--teal);display:grid;place-items:center;font-family:'Bricolage Grotesque';font-weight:800;font-size:17px}
+  .chead .who{font-family:'Bricolage Grotesque';font-weight:800;font-size:15px;color:var(--navy)}
+  .chead .st{font-size:11.5px;color:var(--mut);display:flex;align-items:center;gap:6px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px rgba(18,179,166,.2)}
+  .log{padding:18px 16px;height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;background:#f7fafc}
+  .msg{max-width:82%;padding:11px 14px;font-size:14.5px;line-height:1.45;animation:up .26s ease}
+  @keyframes up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .bot{background:#fff;border:1px solid #e1ebf2;border-radius:15px 15px 15px 4px;align-self:flex-start;color:var(--ink)}
+  .usr{background:var(--navy);color:#eaf3fa;border-radius:15px 15px 4px 15px;align-self:flex-end;font-weight:500}
+  .grounded{align-self:flex-start;font-size:11px;color:var(--teal-d);font-weight:600;display:flex;align-items:center;gap:5px;margin:-4px 0 2px 4px}
+  .grounded::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal)}
+  .lead{align-self:stretch;background:#eafaf7;border:1px solid #b3e6df;border-radius:14px;padding:14px 16px;font-size:13.5px}
+  .lead h4{font-family:'Bricolage Grotesque';color:var(--teal-d);font-size:12.5px;font-weight:800;margin-bottom:9px}
+  .lead .row{display:flex;justify-content:space-between;padding:3px 0;color:var(--mut)}
+  .lead .row b{color:var(--ink);font-weight:600}
+  .chips{padding:12px 15px;border-top:1px solid #e4edf3;display:flex;gap:9px;flex-wrap:wrap;min-height:58px;align-items:center;background:#fff}
+  .chip{font-family:'DM Sans';font-weight:600;font-size:13px;background:#fff;border:1.5px solid var(--teal);color:var(--teal-d);padding:9px 14px;border-radius:11px;cursor:pointer}
+  .chip:hover{background:var(--teal);color:#042e2a}
+  .chip.urgent{border-color:var(--coral);color:var(--coral)}
+  .chip.urgent:hover{background:var(--coral);color:#fff}
+  .composer{display:flex;gap:8px;padding:12px 15px;border-top:1px solid #e4edf3;background:#fff}
+  .composer input{flex:1;background:#f7fafc;border:1px solid #d7e3ec;color:var(--ink);border-radius:11px;padding:11px 13px;font-family:'DM Sans';font-size:14px;outline:none}
+  .composer input::placeholder{color:var(--mut)}
+  .composer input:focus{border-color:var(--teal)}
+  .composer button{font-family:'Bricolage Grotesque';font-weight:700;background:var(--teal);color:#042e2a;border:none;border-radius:11px;padding:0 18px;cursor:pointer;font-size:14px}
+  .composer button:hover{background:var(--teal-d)}
+  .composer button:disabled{opacity:.45;cursor:default}
+  .typing{display:flex;gap:4px;padding:12px 14px}
+  .typing span{width:7px;height:7px;background:#9fb8c8;border-radius:50%;animation:bl 1s infinite;opacity:.4}
+  .typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+  @keyframes bl{30%{opacity:1}}
+
+  section{padding:56px 0}
+  h2{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(26px,4vw,38px);color:var(--navy);letter-spacing:-.02em;line-height:1.06}
+  .lede{color:var(--mut);margin-top:15px;max-width:52ch;font-size:17px}
+  .grid{margin-top:36px;display:grid;gap:16px}
+  @media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr)}}
+  .f{background:var(--sky);border-radius:16px;padding:24px;border-left:4px solid var(--teal)}
+  .f:nth-child(1){border-left-color:var(--coral)}
+  .f h3{font-family:'Bricolage Grotesque';font-weight:700;font-size:18px;color:var(--navy);margin-bottom:8px}
+  .f p{color:var(--mut);font-size:15px}
+  .price{text-align:center;background:linear-gradient(160deg,var(--navy),var(--navy-d));color:var(--sky);border-radius:24px;padding:44px 30px}
+  .price .amt{font-family:'Bricolage Grotesque';font-weight:800;font-size:54px;color:#fff}
+  .price .amt span{font-size:20px;color:#93aec2;font-weight:600}
+  .price p{color:#b9cbd9;margin:12px auto 24px;max-width:42ch}
+  footer{padding:32px 0;border-top:1px solid #dbe6ee;color:var(--mut);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <div class="brand"><span class="drop"></span>TrueFlow</div>
+  <div class="note">Demo company · your name here</div>
+</div></header>
+
+<div class="hero"><div class="wrap"><div class="hi">
+  <div>
+    <div class="kick">The burst pipe at 2am</div>
+    <h1>Water's everywhere. They're calling anyone who picks up.</h1>
+    <p class="sub">If that's not you, it's your competitor. This answers on the first ring, every hour, and dispatches the job straight to your phone.</p>
+    <div class="cta">
+      <a href="#try" class="btn">See it work</a>
+      <a href="#how" class="btn line">What it costs</a>
+    </div>
+  </div>
+
+  <div class="card" id="try">
+    <div class="chead">
+      <div class="av">TF</div>
+      <div>
+        <div class="who">TrueFlow Home Services</div>
+        <div class="st"><span class="dot"></span>24/7, first-ring answer</div>
+      </div>
+    </div>
+    <div class="log" id="log"></div>
+    <div class="chips" id="chips"></div>
+    <div class="composer">
+      <input id="inp" autocomplete="off" placeholder="Describe the problem or ask a question…">
+      <button id="send">Send</button>
+    </div>
+  </div>
+</div></div></div>
+
+<section id="how"><div class="wrap">
+  <h2>The emergency call is the whole business. Don't lose it to voicemail.</h2>
+  <p class="lede">It sits on your website and Google listing, sounds like your dispatcher, and grabs the address and problem while it's still your customer. It never quotes a price or an arrival time you didn't set.</p>
+  <div class="grid">
+    <div class="f"><h3>Catches the 2am job</h3><p>Nights, weekends, mid-service, it answers instantly and gets the details before the caller tries the next number down the list.</p></div>
+    <div class="f"><h3>Dispatches to your phone</h3><p>Address, problem, urgency, callback number, texted the second they finish. You call back a ready job, not a voicemail.</p></div>
+    <div class="f"><h3>Flags the real emergencies</h3><p>Gas smell, flooding, no heat in winter, it recognizes urgent and marks it so you know which call to return first. It won't promise an ETA you didn't give.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Done for you. One flat price.</h2>
+  <p class="lede">Send your service area and hours once. I build it, wire it to your site, and run it. If it ever goes down, the caller's info still texts straight to you, so you never lose the job.</p>
+  <div class="price">
+    <div class="amt">$99<span> / month</span></div>
+    <p>Everything included. No contract, no per-lead fees, no setup on your end. Cancel anytime.</p>
+    <a href="#try" class="btn">Try the demo again</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">A live demo. Company name and details are placeholders for yours.</div></footer>
+
+<script>
+var CFG={
+  /* After deploying backend/, set this to your Render URL + /chat */
+  api:"https://vertical-demos.onrender.com/chat",
+  vertical:"home-services",
+  greeting:"TrueFlow Home Services, how can we help? Tell me what's going on.",
+  starters:["Burst pipe, flooding","No hot water","Do you serve Fenton?"],
+  groundedLabel:"Grounded — no invented ETAs",
+  leadTitle:"Dispatched to TrueFlow",
+  failText:"I’m having trouble connecting right now. Leave your name and number and dispatch will get back to you."
+};
+(function(){
+  var log=document.getElementById('log'),chips=document.getElementById('chips'),
+      inp=document.getElementById('inp'),sendBtn=document.getElementById('send');
+  var history=[],busy=false,done=false;
+  // Allow ?api=<url> to override the endpoint (handy for local testing); else use CFG.api.
+  function apiUrl(){try{return new URLSearchParams(location.search).get('api')||CFG.api}catch(e){return CFG.api}}
+  function el(c,h){var d=document.createElement('div');d.className=c;d.innerHTML=h;return d}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})}
+  function scroll(){log.scrollTop=log.scrollHeight}
+  function addUser(t){log.appendChild(el('msg usr',esc(t)));scroll()}
+  function addBot(t){log.appendChild(el('msg bot',esc(t)));scroll()}
+  function grounded(){log.appendChild(el('grounded',CFG.groundedLabel));scroll()}
+  function typing(){var t=el('typing','<span></span><span></span><span></span>');log.appendChild(t);scroll();return t}
+  function setStarters(){chips.innerHTML='';CFG.starters.forEach(function(s){
+    var b=document.createElement('button');b.className='chip';b.textContent=s;
+    b.onclick=function(){send(s)};chips.appendChild(b)})}
+  function leadCard(l){
+    var rows='<div class="row"><span>Request</span><b>'+esc(l.summary||'—')+'</b></div>'+
+      '<div class="row"><span>Contact</span><b>'+esc(l.name||'')+' · '+esc(l.phone||'')+'</b></div>';
+    if(l.urgent)rows+='<div class="row"><span>Priority</span><b>Urgent</b></div>';
+    log.appendChild(el('lead','<h4>'+CFG.leadTitle+'</h4>'+rows));scroll();
+  }
+  function finish(){done=true;inp.disabled=true;sendBtn.disabled=true;chips.innerHTML='';
+    var b=document.createElement('button');b.className='chip';b.textContent='Run it again';
+    b.onclick=reset;chips.appendChild(b);}
+  function reset(){log.innerHTML='';history=[];done=false;busy=false;
+    inp.disabled=false;sendBtn.disabled=false;inp.value='';start();}
+  function apiMessages(){var out=history.slice();while(out.length&&out[0].role==='assistant')out.shift();return out}
+  function send(text){
+    text=(text||inp.value||'').trim();
+    if(!text||busy||done)return;
+    inp.value='';chips.innerHTML='';
+    addUser(text);history.push({role:'user',content:text});
+    busy=true;sendBtn.disabled=true;var t=typing();
+    fetch(apiUrl(),{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({vertical:CFG.vertical,messages:apiMessages()})})
+      .then(function(r){return r.json().then(function(j){return{ok:r.ok,j:j}})})
+      .then(function(res){t.remove();var j=res.j;
+        if(!res.ok||!j||j.error){addBot((j&&j.error)||CFG.failText);return}
+        addBot(j.reply);history.push({role:'assistant',content:j.reply});
+        if(j.lead){leadCard(j.lead);finish()}})
+      .catch(function(){t.remove();addBot(CFG.failText)})
+      .finally(function(){busy=false;if(!done)sendBtn.disabled=false});
+  }
+  function start(){addBot(CFG.greeting);history.push({role:'assistant',content:CFG.greeting});grounded();setStarters()}
+  sendBtn.onclick=function(){send()};
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();send()}});
+  start();
+})();
+</script>
+</body>
+</html>
