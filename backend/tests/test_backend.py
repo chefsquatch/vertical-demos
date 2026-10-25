@@ -6,6 +6,7 @@ GREEN paths = the success behaviour (health, grounded prompt per vertical, reply
              history sanitising).
 """
 import json
+from types import SimpleNamespace
 
 import pytest
 
@@ -160,8 +161,9 @@ class _FakeHTTP:
     async def __aexit__(self, *a):
         return False
 
-    async def post(self, url, json=None):
+    async def post(self, url, json=None, headers=None):
         _FakeHTTP.posts.append((url, json))
+        return SimpleNamespace(status_code=200, text="")
 
 
 _LEAD_TEXT = ('Done\n<<LEAD>>{"name":"Dana","phone":"555-0133",'
@@ -193,3 +195,72 @@ def test_lead_not_forwarded_when_webhook_unset(app_and_fake, monkeypatch):
                                  "messages": [{"role": "user", "content": "go"}]}).json()
     assert body["lead"]["name"] == "Dana"     # lead still captured/returned
     assert _FakeHTTP.posts == []              # but nothing forwarded
+
+
+# ---------- lead email (founder 2026-10-24: "fork at emailing me") ----------
+
+def test_lead_emailed_with_transcript_when_resend_key_set(app_and_fake, monkeypatch):
+    app_module, fake, c = app_and_fake
+    _FakeHTTP.posts = []
+    monkeypatch.setattr(app_module, "LEAD_WEBHOOK_URL", "")
+    monkeypatch.setattr(app_module, "RESEND_API_KEY", "re_test")
+    monkeypatch.setattr(app_module.httpx, "AsyncClient", _FakeHTTP)
+    fake.next_text = _LEAD_TEXT
+    c.post("/chat", json={"vertical": "restaurant",
+                          "messages": [{"role": "user", "content": "One margherita for pickup"}]})
+    assert len(_FakeHTTP.posts) == 1
+    url, sent = _FakeHTTP.posts[0]
+    assert url == "https://api.resend.com/emails"
+    assert sent["to"] == [app_module.LEAD_EMAIL_TO]
+    assert "Dana" in sent["subject"] and "Nonna's Table" in sent["subject"]
+    assert "555-0133" in sent["text"] and "One margherita for pickup" in sent["text"]
+    assert "<<LEAD>>" not in sent["text"]
+
+
+def test_no_email_without_a_lead_or_without_a_key(app_and_fake, monkeypatch):
+    app_module, fake, c = app_and_fake
+    _FakeHTTP.posts = []
+    monkeypatch.setattr(app_module, "LEAD_WEBHOOK_URL", "")
+    monkeypatch.setattr(app_module.httpx, "AsyncClient", _FakeHTTP)
+    monkeypatch.setattr(app_module, "RESEND_API_KEY", "re_test")
+    c.post("/chat", json={"vertical": "salon", "messages": [{"role": "user", "content": "hi"}]})
+    assert _FakeHTTP.posts == []  # no lead, no email
+    monkeypatch.setattr(app_module, "RESEND_API_KEY", "")
+    fake.next_text = _LEAD_TEXT
+    body = c.post("/chat", json={"vertical": "salon",
+                                 "messages": [{"role": "user", "content": "go"}]}).json()
+    assert body["lead"]["name"] == "Dana" and _FakeHTTP.posts == []
+
+
+# ---------- usage counter ----------
+
+def test_events_are_counted_and_lead_counted_server_side(app_and_fake, monkeypatch):
+    app_module, fake, c = app_and_fake
+    monkeypatch.setattr(app_module, "LEAD_WEBHOOK_URL", "")
+    monkeypatch.setattr(app_module, "RESEND_API_KEY", "")
+    # sendBeacon posts text/plain, so the endpoint must take a raw JSON body
+    for ev in ("view", "view", "chat_open"):
+        r = c.post("/event", content=json.dumps({"vertical": "salon", "event": ev}),
+                   headers={"content-type": "text/plain"})
+        assert r.status_code == 200
+    fake.next_text = _LEAD_TEXT
+    c.post("/chat", json={"vertical": "salon", "messages": [{"role": "user", "content": "go"}]})
+    day = next(iter(c.get("/stats").json().values()))
+    assert day["salon"] == {"view": 2, "chat_open": 1, "lead": 1}
+
+
+def test_unknown_event_or_vertical_rejected(app_and_fake):
+    _, _, c = app_and_fake
+    assert c.post("/event", json={"vertical": "salon", "event": "lead"}).status_code == 400
+    assert c.post("/event", json={"vertical": "nope", "event": "view"}).status_code == 400
+    assert c.post("/event", content="not json").status_code == 400
+    assert c.get("/stats").json() == {}
+
+
+def test_em_dashes_never_reach_the_visitor(app_and_fake):
+    _, fake, c = app_and_fake
+    fake.next_text = "Yes, we do — balayage is Maya's specialty—book soon."
+    body = c.post("/chat", json={"vertical": "salon",
+                                 "messages": [{"role": "user", "content": "hi"}]}).json()
+    assert "—" not in body["reply"]
+    assert body["reply"] == "Yes, we do, balayage is Maya's specialty, book soon."

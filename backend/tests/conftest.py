@@ -36,5 +36,6 @@ def app_and_fake(monkeypatch):
     fake = FakeMessages()
     monkeypatch.setattr(app_module.client, "messages", fake)
     app_module._hits.clear()  # reset rate-limit state between tests
+    app_module._counts.clear()
     from fastapi.testclient import TestClient
     return app_module, fake, TestClient(app_module.app)

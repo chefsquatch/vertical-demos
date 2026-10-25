@@ -39,6 +39,15 @@ ALLOWED_ORIGINS = os.environ.get("ALLOWED_ORIGINS", "*").split(",")
 # service, DB, or auth is used here on purpose — this stays a light marketing demo.
 LEAD_WEBHOOK_URL = os.environ.get("LEAD_WEBHOOK_URL", "").strip()
 
+# Lead email (founder 2026-10-24: "fork at emailing me"). Sent through Resend, the same email
+# rail Tinker uses, on PGT's verified domain. With no RESEND_API_KEY the lead is only logged.
+RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "").strip()
+LEAD_EMAIL_TO = os.environ.get("LEAD_EMAIL_TO", "lesfleming@precisionguessworktech.com").strip()
+EMAIL_FROM = os.environ.get("EMAIL_FROM", "PGT Demos <demos@precisionguessworktech.com>").strip()
+
+# Usage counter: the events a demo page may report (anything else is ignored).
+TRACKED_EVENTS = {"view", "scripted_tap", "chat_open", "chat_message"}  # "lead" is counted server-side
+
 # Each vertical: display name, brand voice, the assistant's job, and its corpus file.
 VERTICALS = {
     "restaurant": {

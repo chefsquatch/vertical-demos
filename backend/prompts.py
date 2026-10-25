@@ -33,7 +33,7 @@ def build_system_prompt(key: str) -> str:
 and turn interest into a captured lead the owner can follow up on.
 
 VOICE: {v['voice']} Keep replies short and human — two or three sentences, no walls of text,
-no emoji spam.
+no emoji spam. Never use em dashes; use a comma or a period instead.
 
 YOUR JOB: {v['goal']}
 
