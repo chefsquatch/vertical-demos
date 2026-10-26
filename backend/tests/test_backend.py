@@ -264,3 +264,50 @@ def test_em_dashes_never_reach_the_visitor(app_and_fake):
                                  "messages": [{"role": "user", "content": "hi"}]}).json()
     assert "—" not in body["reply"]
     assert body["reply"] == "Yes, we do, balayage is Maya's specialty, book soon."
+
+
+# ---------- owner signup (founder 2026-10-26: keep them rolling into signing up) ----------
+
+_SIGNUP = {"vertical": "salon", "business": "Glow Studio", "name": "Kim Lee",
+           "phone": "810-555-0177", "email": "kim@glow.test", "note": "Two chairs, busy Saturdays"}
+
+
+def test_signup_emails_pgt_with_reply_to_the_owner(app_and_fake, monkeypatch):
+    app_module, fake, c = app_and_fake
+    _FakeHTTP.posts = []
+    monkeypatch.setattr(app_module, "RESEND_API_KEY", "re_test")
+    monkeypatch.setattr(app_module.httpx, "AsyncClient", _FakeHTTP)
+    r = c.post("/signup", json=_SIGNUP)
+    assert r.status_code == 200 and r.json() == {"ok": True}
+    assert len(_FakeHTTP.posts) == 1
+    url, sent = _FakeHTTP.posts[0]
+    assert url == "https://api.resend.com/emails" and sent["to"] == [app_module.LEAD_EMAIL_TO]
+    assert sent["subject"] == "SIGNUP: Glow Studio wants the salon assistant"
+    assert sent["reply_to"] == "kim@glow.test"
+    for v in ["Kim Lee", "810-555-0177", "Two chairs, busy Saturdays"]:
+        assert v in sent["text"]
+    assert "—" not in sent["text"] + sent["subject"]
+    assert c.get("/stats").json()  # counted
+    day = next(iter(c.get("/stats").json().values()))
+    assert day["salon"]["signup"] == 1
+
+
+def test_signup_needs_a_business_a_name_and_a_way_to_reach_them(app_and_fake, monkeypatch):
+    app_module, fake, c = app_and_fake
+    _FakeHTTP.posts = []
+    monkeypatch.setattr(app_module, "RESEND_API_KEY", "re_test")
+    monkeypatch.setattr(app_module.httpx, "AsyncClient", _FakeHTTP)
+    assert c.post("/signup", json={**_SIGNUP, "business": " "}).status_code == 400
+    assert c.post("/signup", json={**_SIGNUP, "phone": "", "email": "nope"}).status_code == 400
+    assert c.post("/signup", json={**_SIGNUP, "vertical": "bakery"}).status_code == 400
+    assert _FakeHTTP.posts == []
+    assert c.post("/signup", json={**_SIGNUP, "email": ""}).status_code == 200  # phone alone is enough
+
+
+def test_signup_honeypot_looks_ok_but_sends_nothing(app_and_fake, monkeypatch):
+    app_module, fake, c = app_and_fake
+    _FakeHTTP.posts = []
+    monkeypatch.setattr(app_module, "RESEND_API_KEY", "re_test")
+    monkeypatch.setattr(app_module.httpx, "AsyncClient", _FakeHTTP)
+    r = c.post("/signup", json={**_SIGNUP, "company": "spam inc"})
+    assert r.status_code == 200 and _FakeHTTP.posts == []

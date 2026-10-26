@@ -46,7 +46,7 @@ LEAD_EMAIL_TO = os.environ.get("LEAD_EMAIL_TO", "lesfleming@precisionguessworkte
 EMAIL_FROM = os.environ.get("EMAIL_FROM", "PGT Demos <demos@precisionguessworktech.com>").strip()
 
 # Usage counter: the events a demo page may report (anything else is ignored).
-TRACKED_EVENTS = {"view", "scripted_tap", "chat_open", "chat_message"}  # "lead" is counted server-side
+TRACKED_EVENTS = {"view", "scripted_tap", "chat_open", "chat_message", "signup_open"}  # "lead", "signup" counted server-side
 
 # Each vertical: display name, brand voice, the assistant's job, and its corpus file.
 VERTICALS = {

@@ -1,6 +1,7 @@
 """Shared FastAPI backend for the four vertical demo assistants.
 
 POST /chat   {vertical, messages:[{role,content}]}  ->  {reply, lead|null}  (a lead is emailed to PGT)
+POST /signup {vertical, business, name, phone, email, ...} -> a business owner asking for this (emailed to PGT)
 POST /event  {vertical, event}                       ->  usage counter (view, chat_open, ...)
 GET  /stats                                          ->  counter totals since last restart
 GET  /health (also HEAD)                             ->  keep-warm ping
@@ -184,6 +185,82 @@ async def event(request: Request):
     if _rate_limited(_client_ip(request)):
         return JSONResponse({"error": "slow down"}, status_code=429)
     _count(vertical, ev)
+    return {"ok": True}
+
+
+# ---- Owner signup (founder 2026-10-26: the "Get this for my salon" button should keep them
+# rolling into signing up, and alert PGT, instead of bouncing them to the website). ----------
+
+VERTICAL_KIND = {"restaurant": "restaurant", "salon": "salon", "auto-repair": "auto shop",
+                 "home-services": "home services"}
+_SIGNUP_FIELDS = {"business": 120, "name": 80, "phone": 40, "email": 120, "website": 200,
+                  "note": 1000}
+
+
+class SignupIn(BaseModel):
+    vertical: str
+    business: str = ""
+    name: str = ""
+    phone: str = ""
+    email: str = ""
+    website: str = ""
+    note: str = ""
+    company: str = ""  # honeypot: hidden from people, bots fill it
+
+
+def _signup_email_text(vertical: str, s: dict) -> str:
+    lines = [
+        f"A business owner wants the assistant. They asked from the {VERTICAL_KIND[vertical]} demo.",
+        "",
+        f"Business: {s['business']}",
+        f"Name:     {s['name']}",
+        f"Phone:    {s['phone']}",
+        f"Email:    {s['email']}",
+        f"Website:  {s['website']}",
+        "",
+        f"Note: {s['note']}" if s["note"] else "No note.",
+        "",
+        "They were told you will text them within a day.",
+    ]
+    return "\n".join(lines)
+
+
+@app.post("/signup")
+async def signup(body: SignupIn, request: Request):
+    if body.vertical not in VERTICALS:
+        return JSONResponse({"error": "unknown vertical"}, status_code=400)
+    if _rate_limited(_client_ip(request)):
+        return JSONResponse({"error": "Too many tries. Give it a minute."}, status_code=429)
+    s = {k: _no_em_dashes(str(getattr(body, k) or "").strip())[:n] for k, n in _SIGNUP_FIELDS.items()}
+    if not s["business"] or not s["name"]:
+        return JSONResponse({"error": "Add your business name and your name."}, status_code=400)
+    if not s["phone"] and "@" not in s["email"]:
+        return JSONResponse({"error": "Add a phone number or an email so we can reach you."},
+                            status_code=400)
+    if body.company.strip():  # a bot filled the hidden field: look successful, send nothing
+        print(f"[SIGNUP-BOT] {body.vertical}", flush=True)
+        return {"ok": True}
+    print(f"[SIGNUP] {body.vertical} {json.dumps(s)}", flush=True)
+    _count(body.vertical, "signup")
+    if RESEND_API_KEY:
+        payload = {
+            "from": EMAIL_FROM,
+            "to": [LEAD_EMAIL_TO],
+            "subject": f"SIGNUP: {s['business']} wants the {VERTICAL_KIND[body.vertical]} assistant",
+            "text": _signup_email_text(body.vertical, s),
+        }
+        if "@" in s["email"]:
+            payload["reply_to"] = s["email"]
+        try:
+            async with httpx.AsyncClient(timeout=8.0) as http:
+                r = await http.post("https://api.resend.com/emails",
+                                    headers={"Authorization": f"Bearer {RESEND_API_KEY}"},
+                                    json=payload)
+            ok = r.status_code < 300
+            print(f"[SIGNUP-{'EMAILED' if ok else 'EMAIL-FAILED'}] {body.vertical} "
+                  f"{'' if ok else str(r.status_code) + ' ' + r.text[:300]}", flush=True)
+        except Exception as e:  # the signup is in the log either way
+            print(f"[SIGNUP-EMAIL-FAILED] {body.vertical} {type(e).__name__}: {e}", flush=True)
     return {"ok": True}
 
 
